@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>首页 · 练食清单</title>
+<link rel='icon' href='data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20100%20100'%3E%3Ctext%20y%3D'.9em'%20font-size%3D'90'%3E%F0%9F%A5%97%3C%2Ftext%3E%3C%2Fsvg%3E'>
+<link rel='stylesheet' href='assets/css/style.css'>
+</head>
+<body data-page='home'>
+<header class='topbar'><div class='wrap bar'><a class='brand' href='index.html'><span class='logo'>🥗</span>练食清单</a><nav class='nav'><a data-page='home' href='index.html'>首页</a><a data-page='foods' href='foods.html'>食物库</a><a data-page='select' href='select.html'>选食物</a><a data-page='log' href='log.html'>今日记录</a><a data-page='saved' href='saved.html'>收藏</a><a data-page='plan' href='plan.html'>餐单</a><a data-page='bmr' href='bmr.html'>测代谢</a><a data-page='about' href='about.html'>关于</a></nav></div></header>
+<main><div class='wrap'>
+<section class='hero'><div class='card' style='background:linear-gradient(135deg,#e9f7ef,#f3fbf6);border-color:#cfe9da'>
+<h1>今天,吃对了吗? 🥗</h1>
+<p class='sub'>不知道吃什么 → <a href='select.html'>选食物</a>;吃了什么 → <a href='log.html'>记一笔</a>。这里是你的健身食物小助手。</p>
+<div class='row' style='margin-top:14px'><a class='btn btn-primary' href='select.html'>🤔 帮我选食物</a><a class='btn btn-orange' href='log.html'>📝 记今天吃了什么</a><a class='btn btn-ghost' href='foods.html'>📖 逛食物库</a></div>
+</div></section>
+<section><div class='section-title'><span class='ico'>📊</span>今天进度</div><div class='card' id='todayCard'><div class='muted small'>加载中…</div></div></section>
+<section><div class='section-title'><span class='ico'>🎯</span>按目标选食物</div>
+<div class='grid grid-cards'>
+<a class='quicklink' href='select.html?goal=cut'><span class='q-ico'>🔥</span><span class='q-t'>减脂</span><span class='muted' style='display:block;font-size:12.5px;margin-top:4px'>高蛋白高纤维,主食控份量</span></a>
+<a class='quicklink' href='select.html?goal=gain'><span class='q-ico'>💪</span><span class='q-t'>增肌</span><span class='muted' style='display:block;font-size:12.5px;margin-top:4px'>蛋白碳水吃够,练后补能量</span></a>
+<a class='quicklink' href='select.html?goal=maintain'><span class='q-ico'>⚖️</span><span class='q-t'>维持体重</span><span class='muted' style='display:block;font-size:12.5px;margin-top:4px'>均衡搭配,跟着感觉吃</span></a>
+</div></section>
+<section><div class='section-title'><span class='ico'>🔎</span>在食物库里找一找</div>
+<div class='card'><div class='searchbar'><input type='text' id='q' placeholder='搜索食物,比如「鸡胸」「燕麦」「西兰花」'><button class='btn btn-primary' id='qBtn'>搜索</button></div></div></section>
+<section><div class='section-title'><span class='ico'>⭐</span>常看常吃</div><div class='grid grid-cards' id='popular'></div></section>
+<section><div class='section-title'><span class='ico'>🍱</span>不会配量?</div><div class='card' style='display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap'><div><h3 style='margin:0 0 4px'>生成一天餐单</h3><p class='muted' style='margin:0'>填每日营养目标 + 勾选想吃的食材,系统自动算每餐吃多少,结构不合理还会提醒你调整。</p></div><a class='btn btn-primary' href='plan.html'>去做餐单 →</a></div></section>
+<section><div class='section-title'><span class='ico'>🧩</span>组合灵感(点食材看详情)</div>
+<div class='grid grid-2'>
+<div class='card'><div class='row' style='justify-content:space-between'><h3 style='margin:0'>减脂快手午餐</h3><span class='tag orange'>🔥 减脂</span></div><p class='small muted'>鸡胸 150g + 糙米饭 150g + 白灼西兰花 200g,高蛋白低负担</p><div class='row' style='gap:6px'><a class='btn btn-ghost btn-sm' href='food.html?id=chicken-breast'>🍗 鸡胸肉</a><a class='btn btn-ghost btn-sm' href='food.html?id=brown-rice'>🍚 糙米</a><a class='btn btn-ghost btn-sm' href='food.html?id=broccoli'>🥦 西兰花</a></div></div>
+<div class='card'><div class='row' style='justify-content:space-between'><h3 style='margin:0'>练后 30 分钟补给</h3><span class='tag orange'>⚡ 练后</span></div><p class='small muted'>香蕉 + 牛奶 + 水煮蛋:快速补糖原和蛋白质</p><div class='row' style='gap:6px'><a class='btn btn-ghost btn-sm' href='food.html?id=banana'>🍌 香蕉</a><a class='btn btn-ghost btn-sm' href='food.html?id=milk'>🥛 牛奶</a><a class='btn btn-ghost btn-sm' href='food.html?id=egg'>🥚 鸡蛋</a></div></div>
+<div class='card'><div class='row' style='justify-content:space-between'><h3 style='margin:0'>不用开火早餐</h3><span class='tag orange'>☀️ 早餐</span></div><p class='small muted'>酸奶/牛奶燕麦 + 蓝莓 + 希腊酸奶,5 分钟搞定</p><div class='row' style='gap:6px'><a class='btn btn-ghost btn-sm' href='food.html?id=oats'>🌾 燕麦片</a><a class='btn btn-ghost btn-sm' href='food.html?id=yogurt'>🥣 希腊酸奶</a><a class='btn btn-ghost btn-sm' href='food.html?id=blueberry'><img class='foodpic' src='assets/img/food/blueberry.png' alt='蓝莓' style='width:18px;height:18px'> 蓝莓</a></div></div>
+<div class='card'><div class='row' style='justify-content:space-between'><h3 style='margin:0'>宿舍/办公室加餐</h3><span class='tag orange'>✋ 加餐</span></div><p class='small muted'>水浸金枪鱼三明治 + 黄瓜,开罐即食不用开火</p><div class='row' style='gap:6px'><a class='btn btn-ghost btn-sm' href='food.html?id=tuna'>🐟 金枪鱼罐头</a><a class='btn btn-ghost btn-sm' href='food.html?id=wholewheat-bread'>🍞 全麦面包</a><a class='btn btn-ghost btn-sm' href='food.html?id=cucumber'>🥒 黄瓜</a></div></div>
+</div></section>
+</div></main>
+<footer class='footer'><div class='wrap'>练食清单 · 给自己看的健身食物小站 · <a href='about.html'>数据说明与免责声明</a></div></footer>
+<script src='data/foods.js'></script>
+<script src='assets/js/common.js'></script>
+<script src='assets/js/page-index.js'></script>
+</body>
+</html>

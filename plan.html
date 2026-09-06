@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>餐单计划 · 练食清单</title>
+<link rel='icon' href='data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20100%20100'%3E%3Ctext%20y%3D'.9em'%20font-size%3D'90'%3E%F0%9F%A5%97%3C%2Ftext%3E%3C%2Fsvg%3E'>
+<link rel='stylesheet' href='assets/css/style.css'>
+</head>
+<body data-page='plan'>
+<header class='topbar'><div class='wrap bar'><a class='brand' href='index.html'><span class='logo'>🥗</span>练食清单</a><nav class='nav'><a data-page='home' href='index.html'>首页</a><a data-page='foods' href='foods.html'>食物库</a><a data-page='select' href='select.html'>选食物</a><a data-page='plan' href='plan.html'>餐单</a><a data-page='bmr' href='bmr.html'>测代谢</a><a data-page='log' href='log.html'>今日记录</a><a data-page='saved' href='saved.html'>收藏</a><a data-page='about' href='about.html'>关于</a></nav></div></header>
+<main><div class='wrap'>
+<h1 style='margin-top:4px'>一天餐单计划 🍱</h1>
+<p class='muted'>填好每天营养目标 → 勾选今天想吃/该吃的食物(不用填克数)→ 系统自动算好每天、每餐各吃多少,并帮你检查结构。</p>
+<div class='card'><div class='row' style='margin-bottom:10px'><b>① 每日营养目标</b><span class='muted small'>(手动填写)</span></div>
+<div class='grid grid-2' style='row-gap:12px'>
+<div><label class='small muted'>每天热量(千卡)</label><input type='number' id='t-kcal' min='800' max='6000' style='width:100%;margin-top:4px'></div>
+<div><label class='small muted'>每天蛋白质(克)</label><input type='number' id='t-p' min='30' max='300' style='width:100%;margin-top:4px'></div>
+<div><label class='small muted'>每天碳水(克)</label><input type='number' id='t-c' min='30' max='600' style='width:100%;margin-top:4px'></div>
+<div><label class='small muted'>每天脂肪(克)</label><input type='number' id='t-f' min='20' max='200' style='width:100%;margin-top:4px'></div>
+</div>
+<p class='small muted' style='margin-top:8px'>三餐均分(早 1/3 · 午 1/3 · 晚 1/3);膳食纤维不作硬目标,生成后会参考提示。</p></div>
+<div class='card'><div class='row' style='margin-bottom:10px'><b>② 选今天想吃的食物</b><span class='muted small'>(可搜索、可按分类筛)</span></div>
+<div class='row' style='gap:8px;margin-bottom:10px'><div class='searchbar'><input type='text' id='pq' placeholder='搜索,如「鸡」「米」「菜」'><button class='btn btn-ghost btn-sm' id='pqClear'>清空</button></div></div>
+<div class='row' id='pCat' style='gap:6px;margin-bottom:10px'></div>
+<div id='pListWrap' style='border:1px solid var(--line);border-radius:12px;max-height:300px;overflow:auto'></div>
+<div style='margin-top:12px'><div class='small muted' style='margin-bottom:6px'>已选(<b id='selCount'>0</b>)</div><div class='row' id='selChips' style='gap:6px'></div></div></div>
+<div style='margin:14px 0'><button class='btn btn-primary btn-block' id='genBtn' style='font-size:16px;padding:13px'>✨ 生成一天餐单</button></div>
+<div id='result'></div>
+</div></main><footer class='footer'><div class='wrap'>练食清单 · 给自己看的健身食物小站 · <a href='about.html'>数据说明与免责声明</a></div></footer>
+<script src='data/foods.js'></script>
+<script src='assets/js/common.js'></script>
+<script src='assets/js/page-plan.js'></script>
+</body>
+</html>

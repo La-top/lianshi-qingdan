@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>选食物 · 练食清单</title>
+<link rel='icon' href='data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20100%20100'%3E%3Ctext%20y%3D'.9em'%20font-size%3D'90'%3E%F0%9F%A5%97%3C%2Ftext%3E%3C%2Fsvg%3E'>
+<link rel='stylesheet' href='assets/css/style.css'>
+</head>
+<body data-page='select'>
+<header class='topbar'><div class='wrap bar'><a class='brand' href='index.html'><span class='logo'>🥗</span>练食清单</a><nav class='nav'><a data-page='home' href='index.html'>首页</a><a data-page='foods' href='foods.html'>食物库</a><a data-page='select' href='select.html'>选食物</a><a data-page='log' href='log.html'>今日记录</a><a data-page='saved' href='saved.html'>收藏</a><a data-page='plan' href='plan.html'>餐单</a><a data-page='bmr' href='bmr.html'>测代谢</a><a data-page='about' href='about.html'>关于</a></nav></div></header>
+<main><div class='wrap'>
+<h1 style='margin-top:4px'>帮我选食物 🤔</h1>
+<p class='muted'>选好下面几步,给你一份可以直接照着吃的推荐清单</p>
+<div class='card'>
+<div class='row' style='margin-bottom:10px'><b>① 我的目标是</b></div><div class='row' id='goalGroup' style='gap:8px;margin-bottom:14px'></div>
+<div class='row' style='margin-bottom:10px'><b>② 这次是</b></div><div class='row' id='sceneGroup' style='gap:8px;margin-bottom:14px'></div>
+<div class='row' style='margin-bottom:10px'><b>③ 忌口 / 偏好</b><span class='muted small'>(可不选)</span></div>
+<div class='row' id='prefGroup' style='gap:8px;margin-bottom:14px'></div>
+<div class='row'><button class='btn btn-primary' id='goBtn' disabled>✨ 生成推荐</button><span class='muted small' id='hint'>先选目标和场景</span></div>
+</div>
+<div id='result' style='margin-top:18px'></div>
+</div></main>
+<footer class='footer'><div class='wrap'>练食清单 · 给自己看的健身食物小站 · <a href='about.html'>数据说明与免责声明</a></div></footer>
+<script src='data/foods.js'></script>
+<script src='assets/js/common.js'></script>
+<script src='assets/js/page-select.js'></script>
+</body>
+</html>
