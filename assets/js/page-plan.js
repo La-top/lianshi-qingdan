@@ -190,6 +190,7 @@ function renderPicker(){
   $('#pCat').innerHTML=CAT_TABS.map(function(c){ return '<button class="tag-chip'+(state.cat===c.k?' selected':'')+'" data-c="'+c.k+'">'+c.t+'</button>'; }).join('');
   var q=state.q.trim().toLowerCase();
   var list=FOODS.filter(function(f){
+    if(CORE_CATS.indexOf(f.cat)<0) return false;
     if(state.cat && f.cat!==state.cat) return false;
     if(q){ var hay=(f.name+' '+(f.alias||'')).toLowerCase(); if(hay.indexOf(q)<0) return false; }
     return true;

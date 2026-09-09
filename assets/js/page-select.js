@@ -31,6 +31,7 @@ function goalWhy(f){
 function compute(){
   var out=[];
   FOODS.forEach(function(f){
+    if(CORE_CATS.indexOf(f.cat)<0)return;
     if(st.prefs.veg&&(f.tags.meat||f.tags.seafood))return;
     if(st.prefs.noDairy&&f.tags.dairy)return;
     if(st.prefs.noSeafood&&f.tags.seafood)return;

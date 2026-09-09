@@ -10,13 +10,17 @@ function todayStr(){var d=new Date();return d.getFullYear()+'-'+pad2(d.getMonth(
 function fmtDate(s){if(!s)return '';var p=s.split('-');return p[1]+'月'+p[2]+'日';}
 var GOAL_META={cut:{label:'减脂',ico:'🔥'},gain:{label:'增肌',ico:'💪'},maintain:{label:'维持体重',ico:'⚖️'}};
 var MEALS=['早餐','午餐','晚餐','加餐'];
-var CAT_META={protein:{label:'高蛋白',ico:'🥩'},staple:{label:'主食碳水',ico:'🍚'},veg:{label:'蔬菜',ico:'🥦'},fruit:{label:'水果',ico:'🍎'},fat:{label:'优质脂肪',ico:'🥑'}};
+var CAT_META={protein:{label:'高蛋白',ico:'🥩'},staple:{label:'主食碳水',ico:'🍚'},veg:{label:'蔬菜',ico:'🥦'},fruit:{label:'水果',ico:'🍎'},fat:{label:'优质脂肪',ico:'🥑'},drink:{label:'饮品',ico:'🥤'},sport:{label:'运动营养品',ico:'💊'}};
+var SCENE_META={pre:{label:'练前',ico:'⚡'},post:{label:'练后',ico:'🏋️'},comp:{label:'比赛日',ico:'🏁'},rec:{label:'恢复日',ico:'💤'},daily:{label:'日常',ico:'☀️'}};
+var CORE_CATS=['protein','staple','veg','fruit','fat'];
 
 /* ---------- 食物库 ---------- */
 function foodById(id){if(!id)return null;for(var i=0;i<FOODS.length;i++){if(FOODS[i].id===id)return FOODS[i];}return null;}
 function foodMacroLine(f){return '热量 '+f.kcal+' 千卡 · 蛋白 '+f.p+'g · 碳水 '+f.c+'g · 脂肪 '+f.f+'g';}
 function foodGoals(f){return (f.goals||[]).map(function(g){return GOAL_META[g]?GOAL_META[g].label:g;});}
 function foodCat(f){return CAT_META[f.cat]?CAT_META[f.cat].label:f.cat;}
+function foodScenes(f){return (f.scenes||[]).map(function(s){return SCENE_META[s]?SCENE_META[s].label:s;});}
+var SUPP_WARN='运动营养品提醒:补剂不是必需品,优先从天然食物满足营养;购买选第三方检测(如 Informed Sport / NSF)以降低污染风险,参赛运动员请遵守反兴奋剂规则;本文仅为知识参考,不构成服用建议,疾病或用药请先咨询医生。';
 function foodPic(f,px){ if(!f)return ''; if(f.pic){return '<img class="foodpic" src="'+f.pic+'" alt="'+esc(f.name)+'" style="width:'+px+'px;height:'+px+'px">';} return f.emoji||''; }
 
 /* ---------- 饮食记录 ---------- */

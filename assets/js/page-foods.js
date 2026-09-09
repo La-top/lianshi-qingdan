@@ -1,15 +1,18 @@
 'use strict';
 var qParam=(new URLSearchParams(location.search).get('q')||'').trim();
-var catAll=[{k:'',t:'全部'},{k:'protein',t:'高蛋白'},{k:'staple',t:'主食碳水'},{k:'veg',t:'蔬菜'},{k:'fruit',t:'水果'},{k:'fat',t:'优质脂肪'}];
+var catAll=[{k:'',t:'全部'},{k:'protein',t:'高蛋白'},{k:'staple',t:'主食碳水'},{k:'veg',t:'蔬菜'},{k:'fruit',t:'水果'},{k:'fat',t:'优质脂肪'},{k:'drink',t:'饮品'},{k:'sport',t:'运动营养品'}];
+var sceneKeys=[{k:'',t:'全部场景'},{k:'pre',t:'⚡ 练前'},{k:'post',t:'🏋️ 练后'},{k:'comp',t:'🏁 比赛日'},{k:'rec',t:'💤 恢复日'},{k:'daily',t:'☀️ 日常'}];
 var goalKeys=[{k:'',t:'全部目标'},{k:'gain',t:'增肌'},{k:'cut',t:'减脂'},{k:'maintain',t:'维持'}];
-var state={cat:'',goal:'',q:qParam};
-var catEl=$('#catChips'), goalEl=$('#goalChips');
+var state={cat:'',goal:'',scene:'',q:qParam};
+var catEl=$('#catChips'), goalEl=$('#goalChips'), sceneEl=$('#sceneChips');
 function paintChips(){
   catEl.innerHTML=catAll.map(function(c){return '<button class="tag-chip'+(state.cat===c.k?' selected':'')+'" data-k="'+c.k+'">'+c.t+'</button>';}).join('');
   goalEl.innerHTML=goalKeys.map(function(c){return '<button class="tag-chip'+(state.goal===c.k?' selected':'')+'" data-g="'+c.k+'">'+c.t+'</button>';}).join('');
+  sceneEl.innerHTML=sceneKeys.map(function(c){return '<button class="tag-chip'+(state.scene===c.k?' selected':'')+'" data-s="'+c.k+'">'+c.t+'</button>';}).join('');
 }
 catEl.onclick=function(e){var b=e.target.closest('[data-k]');if(!b)return;state.cat=b.getAttribute('data-k');paintChips();render();};
 goalEl.onclick=function(e){var b=e.target.closest('[data-g]');if(!b)return;state.goal=b.getAttribute('data-g');paintChips();render();};
+sceneEl.onclick=function(e){var b=e.target.closest('[data-s]');if(!b)return;state.scene=b.getAttribute('data-s');paintChips();render();};
 var qInput=$('#q'); qInput.value=state.q;
 qInput.addEventListener('input',function(){state.q=qInput.value;render();});
 $('#clearQ').onclick=function(){state.q='';qInput.value='';render();};
@@ -21,6 +24,7 @@ function render(){
   var list=FOODS.filter(function(f){
     if(state.cat&&f.cat!==state.cat)return false;
     if(state.goal&&f.goals.indexOf(state.goal)<0)return false;
+    if(state.scene&&(!f.scenes||f.scenes.indexOf(state.scene)<0))return false;
     if(q){var hay=(f.name+' '+(f.alias||'')+' '+f.emoji).toLowerCase();if(hay.indexOf(q)<0)return false;}
     return true;
   });

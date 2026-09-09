@@ -1,5 +1,5 @@
-/* 练食清单 · 食物数据(约45种,营养为每100g参考值,来源见「关于」页) */
-const FOODS_A = [
+/* 练食清单 · 食物库(120种,每100g可食部参考值;含宏量+微量;来源见「关于」页) */
+const FOODS_PROTEIN = [
  {
   "id": "chicken-breast",
   "name": "鸡胸肉",
@@ -26,6 +26,22 @@ const FOODS_A = [
   "c": 0.5,
   "f": 2.5,
   "fiber": 0,
+  "na": 50,
+  "k": 256,
+  "ca": 5,
+  "mg": 23,
+  "fe": 0.9,
+  "zn": 1,
+  "vc": 0,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "post"
+  ],
   "highlight": [
    "高蛋白低脂肪的经典健身食材",
    "便宜、好买、做法多",
@@ -79,6 +95,22 @@ const FOODS_A = [
   "c": 0,
   "f": 4.4,
   "fiber": 0,
+  "na": 70,
+  "k": 240,
+  "ca": 10,
+  "mg": 22,
+  "fe": 1.1,
+  "zn": 1.5,
+  "vc": 0,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "post"
+  ],
   "highlight": [
    "比鸡胸多汁不柴,厨房新手不易翻车",
    "脂肪略高一点,但同样是优质蛋白",
@@ -132,6 +164,22 @@ const FOODS_A = [
   "c": 1,
   "f": 2.3,
   "fiber": 0,
+  "na": 55,
+  "k": 318,
+  "ca": 7,
+  "mg": 21,
+  "fe": 2.6,
+  "zn": 4.8,
+  "vc": 0,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "post"
+  ],
   "highlight": [
    "优质蛋白+铁+锌,增肌人群的经典选择",
    "自带少量肌酸,对力量训练有帮助(含量有限)",
@@ -185,6 +233,22 @@ const FOODS_A = [
   "c": 0.7,
   "f": 2.6,
   "fiber": 0,
+  "na": 48,
+  "k": 400,
+  "ca": 6,
+  "mg": 32,
+  "fe": 1.1,
+  "zn": 2.2,
+  "vc": 0,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "post"
+  ],
   "highlight": [
    "瘦猪肉其实很优秀:高蛋白低脂肪",
    "比牛肉便宜,适合日常轮换",
@@ -238,6 +302,22 @@ const FOODS_A = [
   "c": 0,
   "f": 7.8,
   "fiber": 0,
+  "na": 44,
+  "k": 363,
+  "ca": 12,
+  "mg": 29,
+  "fe": 0.8,
+  "zn": 0.6,
+  "vc": 0,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "post"
+  ],
   "highlight": [
    "富含 Omega-3(EPA/DHA),对心血管和恢复友好",
    "脂肪是好脂肪,减脂期也不用怕",
@@ -291,6 +371,22 @@ const FOODS_A = [
   "c": 0.5,
   "f": 0.5,
   "fiber": 0,
+  "na": 54,
+  "k": 413,
+  "ca": 14,
+  "mg": 32,
+  "fe": 0.4,
+  "zn": 0.5,
+  "vc": 0,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "post"
+  ],
   "highlight": [
    "极低脂肪的高蛋白鱼,减脂期很友好",
    "肉质嫩、几乎无刺,好消化",
@@ -343,6 +439,24 @@ const FOODS_A = [
   "c": 2.8,
   "f": 0.8,
   "fiber": 0,
+  "na": 111,
+  "k": 180,
+  "ca": 52,
+  "mg": 34,
+  "fe": 0.5,
+  "zn": 1.6,
+  "vc": 0,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec",
+   "comp"
+  ],
   "highlight": [
    "高蛋白低脂肪,海鲜里最好处理的之一",
    "几乎没有刺,带饭、快手菜都方便",
@@ -395,6 +509,24 @@ const FOODS_A = [
   "c": 2.8,
   "f": 8.8,
   "fiber": 0,
+  "na": 142,
+  "k": 138,
+  "ca": 56,
+  "mg": 12,
+  "fe": 1.8,
+  "zn": 1.3,
+  "vc": 0,
+  "serving": {
+   "n": 1,
+   "unit": "个",
+   "note": "≈50g"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec",
+   "comp"
+  ],
   "highlight": [
    "蛋白质吸收率极高的全能选手",
    "便宜、耐放、怎么做都行",
@@ -447,6 +579,22 @@ const FOODS_A = [
   "c": 3.4,
   "f": 6.9,
   "fiber": 0.3,
+  "na": 7,
+  "k": 125,
+  "ca": 138,
+  "mg": 60,
+  "fe": 1.9,
+  "zn": 0.9,
+  "vc": 0,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约1/3盒"
+  },
+  "scenes": [
+   "daily",
+   "post"
+  ],
   "highlight": [
    "优质植物蛋白,素食者主力",
    "卤水/石膏豆腐含钙可观",
@@ -500,6 +648,23 @@ const FOODS_A = [
   "c": 1.2,
   "f": 1.6,
   "fiber": 0.4,
+  "na": 28,
+  "k": 70,
+  "ca": 8,
+  "mg": 12,
+  "fe": 0.5,
+  "zn": 0.3,
+  "vc": 0,
+  "serving": {
+   "n": 250,
+   "unit": "毫升",
+   "note": "1杯"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec"
+  ],
   "highlight": [
    "液体植物蛋白,早餐顺手补蛋白",
    "碳水低,乳糖不耐也能喝",
@@ -552,6 +717,24 @@ const FOODS_A = [
   "c": 4,
   "f": 5,
   "fiber": 0,
+  "na": 35,
+  "k": 140,
+  "ca": 120,
+  "mg": 12,
+  "fe": 0.2,
+  "zn": 0.9,
+  "vc": 0,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约1杯"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec",
+   "comp"
+  ],
   "highlight": [
    "浓缩后的酸奶,蛋白质是同量普通酸奶的约 2~3 倍",
    "自带酸甜,加餐、早餐都方便",
@@ -605,6 +788,24 @@ const FOODS_A = [
   "c": 4.9,
   "f": 3.6,
   "fiber": 0,
+  "na": 42,
+  "k": 150,
+  "ca": 120,
+  "mg": 12,
+  "fe": 0.03,
+  "zn": 0.4,
+  "vc": 0,
+  "serving": {
+   "n": 250,
+   "unit": "毫升",
+   "note": "1杯"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec",
+   "comp"
+  ],
   "highlight": [
    "平价蛋白质+钙的来源",
    "全脂和低脂热量差别不大,按预算选",
@@ -657,6 +858,24 @@ const FOODS_A = [
   "c": 0,
   "f": 0.8,
   "fiber": 0,
+  "na": 250,
+  "k": 180,
+  "ca": 8,
+  "mg": 20,
+  "fe": 1,
+  "zn": 0.7,
+  "vc": 0,
+  "serving": {
+   "n": 100,
+   "unit": "克",
+   "note": "约半罐(沥水)"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec",
+   "comp"
+  ],
   "highlight": [
    "开罐即食的高蛋白,宿舍党/上班族友好",
    "蛋白质密度很高,脂肪极低",
@@ -685,6 +904,796 @@ const FOODS_A = [
   "tips": "一定选「水浸」,别买油浸或自带沙拉酱的款式,热量差很多。"
  },
  {
+  "id": "duck-breast",
+  "name": "鸭胸肉(去皮)",
+  "alias": "鸭胸 · 去皮鸭肉",
+  "emoji": "🦆",
+  "cat": "protein",
+  "basis": "生重",
+  "goals": [
+   "gain",
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": true,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 125,
+  "p": 20,
+  "c": 0.5,
+  "f": 4.6,
+  "fiber": 0,
+  "na": 70,
+  "k": 340,
+  "ca": 9,
+  "mg": 26,
+  "fe": 1.8,
+  "zn": 1.6,
+  "vc": 0,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec"
+  ],
+  "highlight": [
+   "去皮后是低脂高蛋白的好肉",
+   "口感比鸡胸嫩,做法多样"
+  ],
+  "pair": [
+   {
+    "name": "芦笋",
+    "why": "鸭胸配芦笋,香煎一餐很完整"
+   }
+  ],
+  "recipe": {
+   "name": "香煎鸭胸",
+   "time": "约20分钟",
+   "steps": [
+    "鸭胸去皮下肥油,两面划刀",
+    "中火先煎皮面3~4分钟出油,再翻面煎4分钟",
+    "盖盖焖2分钟,切片配蔬菜"
+   ]
+  },
+  "tips": "带皮热量高很多,一定去皮去肥油再吃。"
+ },
+ {
+  "id": "beef-shank",
+  "name": "牛腱子(熟)",
+  "alias": "牛腱 · 卤牛腱",
+  "emoji": "🥩",
+  "cat": "protein",
+  "basis": "熟重(水煮无盐参考)",
+  "goals": [
+   "gain",
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": true,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 168,
+  "p": 28.5,
+  "c": 0.8,
+  "f": 5.2,
+  "fiber": 0,
+  "na": 58,
+  "k": 260,
+  "ca": 12,
+  "mg": 22,
+  "fe": 3,
+  "zn": 5,
+  "vc": 0,
+  "serving": {
+   "n": 100,
+   "unit": "克",
+   "note": "约1掌心"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec"
+  ],
+  "highlight": [
+   "胶质多、脂肪低,健身增肌好选择",
+   "一次卤一锅,切片即食很省事"
+  ],
+  "pair": [
+   {
+    "name": "彩椒",
+    "why": "凉拌牛腱配彩椒丝,清爽补维C"
+   }
+  ],
+  "recipe": {
+   "name": "清炖/卤牛腱",
+   "time": "约90分钟",
+   "steps": [
+    "牛腱焯水去沫",
+    "加姜片、葱、八角、少量酱油,水开后小火炖60~80分钟",
+    "放凉切片,汤汁可留作高汤"
+   ]
+  },
+  "tips": "市售卤牛腱偏咸,钠会高很多;自己煮可少盐少酱油。"
+ },
+ {
+  "id": "lamb-lean",
+  "name": "瘦羊肉(生)",
+  "alias": "羊里脊 · 瘦羊腿",
+  "emoji": "🐑",
+  "cat": "protein",
+  "basis": "生重",
+  "goals": [
+   "gain",
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": true,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 118,
+  "p": 20.6,
+  "c": 0.5,
+  "f": 3.9,
+  "fiber": 0,
+  "na": 75,
+  "k": 300,
+  "ca": 6,
+  "mg": 24,
+  "fe": 2,
+  "zn": 3.5,
+  "vc": 0,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec"
+  ],
+  "highlight": [
+   "瘦羊肉蛋白高脂肪低",
+   "铁和锌都不错,适合冬天训练"
+  ],
+  "pair": [
+   {
+    "name": "洋葱",
+    "why": "洋葱去膻增香,少酱也下饭"
+   }
+  ],
+  "recipe": {
+   "name": "孜然炒羊肉",
+   "time": "约15分钟",
+   "steps": [
+    "瘦羊肉切薄片,少油大火快炒1~2分钟",
+    "下洋葱丝、孜然、辣椒面炒香",
+    "调味出锅,别久炒"
+   ]
+  },
+  "tips": "选羊里脊/瘦腿肉,肥羊卷脂肪高,减脂期少吃。"
+ },
+ {
+  "id": "pork-liver",
+  "name": "猪肝(生)",
+  "alias": "猪肝",
+  "emoji": "🍖",
+  "cat": "protein",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": true,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 129,
+  "p": 19.3,
+  "c": 5,
+  "f": 3.5,
+  "fiber": 0,
+  "na": 68,
+  "k": 235,
+  "ca": 6,
+  "mg": 18,
+  "fe": 23,
+  "zn": 5.8,
+  "vc": 18,
+  "serving": {
+   "n": 50,
+   "unit": "克",
+   "note": "每周1~2次,一次约50g"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "铁含量极高,是缺铁/女运动员补铁食物",
+   "蛋白质也高,性价比好"
+  ],
+  "pair": [
+   {
+    "name": "菠菜",
+    "why": "动物铁+植物铁搭配,再加维C助吸收"
+   }
+  ],
+  "recipe": {
+   "name": "爆炒猪肝",
+   "time": "约15分钟",
+   "steps": [
+    "猪肝切片用淡盐水泡后冲洗,沥干",
+    "大火热油快炒至变色盛出",
+    "下蒜片青椒炒香,倒回猪肝调味翻匀"
+   ]
+  },
+  "tips": "维生素A含量很高,孕期/备孕请遵医嘱限量,一般每周50~100g即可。"
+ },
+ {
+  "id": "egg-white",
+  "name": "蛋清(蛋白)",
+  "alias": "鸡蛋白",
+  "emoji": "🥚",
+  "cat": "protein",
+  "basis": "可食部",
+  "goals": [
+   "gain",
+   "cut"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": true,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": true,
+  "snack": true,
+  "kcal": 52,
+  "p": 10.9,
+  "c": 0.7,
+  "f": 0.2,
+  "fiber": 0,
+  "na": 166,
+  "k": 163,
+  "ca": 7,
+  "mg": 11,
+  "fe": 0.1,
+  "zn": 0.03,
+  "vc": 0,
+  "serving": {
+   "n": 1,
+   "unit": "个蛋清",
+   "note": "约33g"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec"
+  ],
+  "highlight": [
+   "几乎零脂肪的纯蛋白",
+   "增肌期想多吃蛋白又控脂时很好用"
+  ],
+  "pair": [
+   {
+    "name": "全蛋",
+    "why": "蛋黄营养也别丢,蛋清+适量蛋黄更均衡"
+   }
+  ],
+  "tips": "一个全蛋蛋白约6g、蛋清约3.5g;别只吃蛋清,蛋黄含卵磷脂等营养。"
+ },
+ {
+  "id": "quail-egg",
+  "name": "鹌鹑蛋",
+  "alias": "鹌鹑蛋",
+  "emoji": "🥚",
+  "cat": "protein",
+  "basis": "可食部(约10g/个)",
+  "goals": [
+   "gain",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": true,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 158,
+  "p": 12.8,
+  "c": 2.1,
+  "f": 11.1,
+  "fiber": 0,
+  "na": 107,
+  "k": 138,
+  "ca": 47,
+  "mg": 11,
+  "fe": 3.2,
+  "zn": 1.4,
+  "vc": 0,
+  "serving": {
+   "n": 4,
+   "unit": "个",
+   "note": "约40g"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "小巧当加餐方便",
+   "胆固醇与全蛋相近,适量吃没问题"
+  ],
+  "pair": [
+   {
+    "name": "口蘑",
+    "why": "小食配菜,便当友好"
+   }
+  ],
+  "tips": "体积小容易吃多,4~6个约等于1个全蛋的蛋白量,按需换算。"
+ },
+ {
+  "id": "tofu-silken",
+  "name": "内酯豆腐(嫩豆腐)",
+  "alias": "内酯豆腐 · 嫩豆腐",
+  "emoji": "🍲",
+  "cat": "protein",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 50,
+  "p": 5,
+  "c": 2.9,
+  "f": 2.6,
+  "fiber": 0.3,
+  "na": 6,
+  "k": 95,
+  "ca": 17,
+  "mg": 24,
+  "fe": 0.4,
+  "zn": 0.5,
+  "vc": 0,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约半盒"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "口感嫩滑,热量低",
+   "减脂期做汤、拌菜都合适"
+  ],
+  "pair": [
+   {
+    "name": "虾仁",
+    "why": "虾仁蒸/烩嫩豆腐,低脂高蛋白"
+   }
+  ],
+  "recipe": {
+   "name": "凉拌嫩豆腐",
+   "time": "约5分钟",
+   "steps": [
+    "豆腐整块装盘,蒸3分钟或直接用",
+    "淋生抽、香油、葱花",
+    "可加虾皮/肉松提味"
+   ]
+  },
+  "tips": "蛋白质比北豆腐低,想多补蛋白优先选北豆腐或豆干。"
+ },
+ {
+  "id": "tofu-dried",
+  "name": "豆干(香干)",
+  "alias": "香干 · 五香豆干",
+  "emoji": "🍲",
+  "cat": "protein",
+  "basis": "生重",
+  "goals": [
+   "gain",
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 142,
+  "p": 16.5,
+  "c": 6,
+  "f": 7,
+  "fiber": 0.5,
+  "na": 200,
+  "k": 110,
+  "ca": 308,
+  "mg": 61,
+  "fe": 2.1,
+  "zn": 1.1,
+  "vc": 0,
+  "serving": {
+   "n": 60,
+   "unit": "克",
+   "note": "约1块"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "植物蛋白密度比豆腐高,钙也高",
+   "即食/凉拌/炒菜都方便"
+  ],
+  "pair": [
+   {
+    "name": "芹菜",
+    "why": "芹菜炒香干,经典家常高蛋白素菜"
+   }
+  ],
+  "recipe": {
+   "name": "香干炒芹菜",
+   "time": "约10分钟",
+   "steps": [
+    "豆干切条,芹菜切段",
+    "少油先炒豆干微黄",
+    "下芹菜快炒,调味出锅"
+   ]
+  },
+  "tips": "五香/卤制豆干钠偏高,高血压人群注意看包装钠含量。"
+ },
+ {
+  "id": "yuba",
+  "name": "腐竹(干)",
+  "alias": "腐竹 · 支竹",
+  "emoji": "🍥",
+  "cat": "protein",
+  "basis": "干重(需泡发)",
+  "goals": [
+   "gain",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 461,
+  "p": 44.6,
+  "c": 22.3,
+  "f": 21.7,
+  "fiber": 1.5,
+  "na": 26,
+  "k": 553,
+  "ca": 77,
+  "mg": 71,
+  "fe": 16.5,
+  "zn": 3.7,
+  "vc": 0,
+  "serving": {
+   "n": 25,
+   "unit": "克",
+   "note": "干重,泡发后约70g"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "植物蛋白和铁都很高",
+   "泡发后口感筋道,炖煮百搭"
+  ],
+  "pair": [
+   {
+    "name": "木耳",
+    "why": "腐竹木耳一起凉拌/炖,素食高蛋白"
+   }
+  ],
+  "recipe": {
+   "name": "凉拌腐竹",
+   "time": "约30分钟(含泡发)",
+   "steps": [
+    "腐竹温水泡发至软,切段焯水1分钟",
+    "加黄瓜丝、蒜末、生抽、醋、香油",
+    "拌匀即可"
+   ]
+  },
+  "tips": "干品热量密度高,一次25~40g干重就够;泡发后重量约3倍。"
+ },
+ {
+  "id": "bass",
+  "name": "鲈鱼",
+  "alias": "鲈鱼",
+  "emoji": "🐟",
+  "cat": "protein",
+  "basis": "生重(整鱼可食部)",
+  "goals": [
+   "gain",
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": true,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 105,
+  "p": 18.6,
+  "c": 0,
+  "f": 3.4,
+  "fiber": 0,
+  "na": 144,
+  "k": 205,
+  "ca": 138,
+  "mg": 37,
+  "fe": 2,
+  "zn": 2.8,
+  "vc": 0,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约小半条"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec"
+  ],
+  "highlight": [
+   "肉质细嫩、刺少",
+   "钙含量在鱼类里较高"
+  ],
+  "pair": [
+   {
+    "name": "姜丝蒸鱼",
+    "why": "清蒸保留营养,少油少盐"
+   }
+  ],
+  "recipe": {
+   "name": "清蒸鲈鱼",
+   "time": "约15分钟",
+   "steps": [
+    "鱼身划刀,铺姜丝葱段",
+    "水开蒸8~10分钟,倒掉腥水",
+    "淋蒸鱼豉油,可浇少量热油"
+   ]
+  },
+  "tips": "蒸的时间看鱼大小,筷子能轻松插入鱼背最厚处即熟。"
+ },
+ {
+  "id": "yellow-croaker",
+  "name": "黄花鱼",
+  "alias": "黄鱼 · 大黄鱼",
+  "emoji": "🐟",
+  "cat": "protein",
+  "basis": "生重(可食部)",
+  "goals": [
+   "gain",
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": true,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 99,
+  "p": 17.7,
+  "c": 0.8,
+  "f": 2.5,
+  "fiber": 0,
+  "na": 103,
+  "k": 228,
+  "ca": 53,
+  "mg": 39,
+  "fe": 1,
+  "zn": 0.9,
+  "vc": 0,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约小半条"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec"
+  ],
+  "highlight": [
+   "脂肪低蛋白足,家常海鱼",
+   "肉质嫩,煎/炖都香"
+  ],
+  "pair": [
+   {
+    "name": "豆腐",
+    "why": "黄鱼炖豆腐,钙蛋白双补"
+   }
+  ],
+  "tips": "腌制咸黄鱼钠极高,健身期优先选新鲜/冰鲜黄鱼。"
+ },
+ {
+  "id": "clam",
+  "name": "蛤蜊",
+  "alias": "花蛤 · 文蛤",
+  "emoji": "🦪",
+  "cat": "protein",
+  "basis": "可食部(去壳)",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": true,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 62,
+  "p": 10.1,
+  "c": 2.8,
+  "f": 1.1,
+  "fiber": 0,
+  "na": 350,
+  "k": 280,
+  "ca": 60,
+  "mg": 15,
+  "fe": 2.4,
+  "zn": 1.2,
+  "vc": 0,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "去壳约1小碗"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "低热量高蛋白的海鲜",
+   "鲜味足,少调味也好吃"
+  ],
+  "pair": [
+   {
+    "name": "丝瓜/冬瓜",
+    "why": "蛤蜊冬瓜汤,清爽补电解质"
+   }
+  ],
+  "recipe": {
+   "name": "蛤蜊冬瓜汤",
+   "time": "约20分钟",
+   "steps": [
+    "蛤蜊吐沙洗净",
+    "冬瓜切块煮8分钟",
+    "下蛤蜊煮到开口,盐白胡椒调味"
+   ]
+  },
+  "tips": "本身自带咸味,先尝再放盐;痛风/高尿酸人群注意控制贝类海鲜量。"
+ },
+ {
+  "id": "oyster",
+  "name": "生蚝(牡蛎)",
+  "alias": "牡蛎 · 生蚝",
+  "emoji": "🦪",
+  "cat": "protein",
+  "basis": "可食部(去壳)",
+  "goals": [
+   "gain",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": true,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 73,
+  "p": 9,
+  "c": 4.6,
+  "f": 2,
+  "fiber": 0,
+  "na": 260,
+  "k": 168,
+  "ca": 60,
+  "mg": 22,
+  "fe": 5,
+  "zn": 71,
+  "vc": 0,
+  "serving": {
+   "n": 6,
+   "unit": "个",
+   "note": "约100g可食部"
+  },
+  "scenes": [
+   "rec"
+  ],
+  "highlight": [
+   "锌含量很高的天然食物",
+   "对免疫和男性生殖健康有帮助"
+  ],
+  "pair": [
+   {
+    "name": "柠檬",
+    "why": "挤柠檬去腥,也补维C助铁锌吸收"
+   }
+  ],
+  "recipe": {
+   "name": "蒜蓉烤生蚝",
+   "time": "约15分钟",
+   "steps": [
+    "生蚝刷净开壳",
+    "蒜末炒香铺在蚝肉上",
+    "200℃烤8~10分钟至熟"
+   ]
+  },
+  "tips": "尽量做熟吃(生食有微生物风险);贝类嘌呤较高,痛风者注意。"
+ }
+];
+
+const FOODS_STAPLE = [
+ {
   "id": "oats",
   "name": "燕麦片",
   "alias": "生燕麦片 · 快熟燕麦",
@@ -710,6 +1719,22 @@ const FOODS_A = [
   "c": 61.6,
   "f": 6.7,
   "fiber": 5.3,
+  "na": 4,
+  "k": 330,
+  "ca": 54,
+  "mg": 140,
+  "fe": 4.7,
+  "zn": 3.6,
+  "vc": 0,
+  "serving": {
+   "n": 50,
+   "unit": "克",
+   "note": "干重,约半碗"
+  },
+  "scenes": [
+   "daily",
+   "pre"
+  ],
   "highlight": [
    "缓释碳水+β-葡聚糖,饱腹感强",
    "减脂期主食好选择,早餐 10 分钟搞定",
@@ -762,6 +1787,22 @@ const FOODS_A = [
   "c": 75,
   "f": 2.7,
   "fiber": 3.4,
+  "na": 8,
+  "k": 220,
+  "ca": 10,
+  "mg": 110,
+  "fe": 1.6,
+  "zn": 2,
+  "vc": 0,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "熟重"
+  },
+  "scenes": [
+   "daily",
+   "pre"
+  ],
   "highlight": [
    "保留麸皮和胚芽,纤维和 B 族维生素更多",
    "升糖比白米慢,饱腹更久",
@@ -814,6 +1855,24 @@ const FOODS_A = [
   "c": 25.9,
   "f": 0.3,
   "fiber": 0.3,
+  "na": 1,
+  "k": 29,
+  "ca": 5,
+  "mg": 13,
+  "fe": 0.2,
+  "zn": 0.5,
+  "vc": 0,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "熟重"
+  },
+  "scenes": [
+   "daily",
+   "pre",
+   "post",
+   "comp"
+  ],
   "highlight": [
    "最省事、最好消化的快碳",
    "练后补充糖原很方便",
@@ -866,6 +1925,22 @@ const FOODS_A = [
   "c": 20.1,
   "f": 0.1,
   "fiber": 3,
+  "na": 55,
+  "k": 337,
+  "ca": 30,
+  "mg": 25,
+  "fe": 0.6,
+  "zn": 0.3,
+  "vc": 2.4,
+  "serving": {
+   "n": 200,
+   "unit": "克",
+   "note": "约1个中等"
+  },
+  "scenes": [
+   "daily",
+   "pre"
+  ],
   "highlight": [
    "天然甜味,满足「想吃甜」的需求",
    "纤维+钾都不错",
@@ -918,6 +1993,22 @@ const FOODS_A = [
   "c": 22.8,
   "f": 1.2,
   "fiber": 2.9,
+  "na": 1,
+  "k": 218,
+  "ca": 8,
+  "mg": 37,
+  "fe": 0.5,
+  "zn": 0.6,
+  "vc": 6.8,
+  "serving": {
+   "n": 1,
+   "unit": "根",
+   "note": "≈200g 可食部"
+  },
+  "scenes": [
+   "daily",
+   "pre"
+  ],
   "highlight": [
    "粗粮里口感最好的之一,煮着就很好吃",
    "膳食纤维丰富,饱腹感强",
@@ -970,6 +2061,24 @@ const FOODS_A = [
   "c": 41,
   "f": 3.4,
   "fiber": 6,
+  "na": 380,
+  "k": 210,
+  "ca": 100,
+  "mg": 80,
+  "fe": 3,
+  "zn": 1.8,
+  "vc": 0,
+  "serving": {
+   "n": 2,
+   "unit": "片",
+   "note": "约60g"
+  },
+  "scenes": [
+   "daily",
+   "pre",
+   "post",
+   "comp"
+  ],
   "highlight": [
    "不用开火就能吃的主食",
    "真全麦膳食纤维高,饱腹感强",
@@ -1023,6 +2132,22 @@ const FOODS_A = [
   "c": 71,
   "f": 1.5,
   "fiber": 3,
+  "na": 6,
+  "k": 120,
+  "ca": 25,
+  "mg": 50,
+  "fe": 3,
+  "zn": 1.8,
+  "vc": 0,
+  "serving": {
+   "n": 80,
+   "unit": "克",
+   "note": "干重"
+  },
+  "scenes": [
+   "daily",
+   "pre"
+  ],
   "highlight": [
    "慢碳水,饱腹感比白面条强",
    "煮一次能带两顿饭",
@@ -1076,6 +2201,22 @@ const FOODS_A = [
   "c": 64.2,
   "f": 6.1,
   "fiber": 7,
+  "na": 5,
+  "k": 560,
+  "ca": 47,
+  "mg": 197,
+  "fe": 4.6,
+  "zn": 3.1,
+  "vc": 0,
+  "serving": {
+   "n": 50,
+   "unit": "克",
+   "note": "干重"
+  },
+  "scenes": [
+   "daily",
+   "pre"
+  ],
   "highlight": [
    "谷物里少见的「全蛋白」,含全部必需氨基酸",
    "纤维丰富,素食者主食优选",
@@ -1129,6 +2270,22 @@ const FOODS_A = [
   "c": 17.2,
   "f": 0.2,
   "fiber": 2.2,
+  "na": 6,
+  "k": 420,
+  "ca": 12,
+  "mg": 23,
+  "fe": 0.8,
+  "zn": 0.3,
+  "vc": 13,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约1个中等"
+  },
+  "scenes": [
+   "daily",
+   "pre"
+  ],
   "highlight": [
    "高饱腹主食,蒸煮热量很低",
    "钾含量高,运动后友好",
@@ -1159,7 +2316,7 @@ const FOODS_A = [
   "id": "chickpea",
   "name": "鹰嘴豆",
   "alias": "鸡豆",
-  "emoji": "🥜", "pic": "assets/img/food/chickpea.png",
+  "emoji": "🥜",
   "cat": "staple",
   "basis": "干重(需浸泡煮熟)",
   "goals": [
@@ -1181,6 +2338,23 @@ const FOODS_A = [
   "c": 61,
   "f": 6,
   "fiber": 12,
+  "na": 24,
+  "k": 718,
+  "ca": 105,
+  "mg": 115,
+  "fe": 6.2,
+  "zn": 3.4,
+  "vc": 0,
+  "serving": {
+   "n": 40,
+   "unit": "克",
+   "note": "干重"
+  },
+  "scenes": [
+   "daily",
+   "pre",
+   "rec"
+  ],
   "highlight": [
    "植物蛋白+膳食纤维双高",
    "烤着吃是优秀的高蛋白零食",
@@ -1206,7 +2380,8 @@ const FOODS_A = [
     "放凉后更酥脆"
    ]
   },
-  "tips": "干豆密度高,当零食一人份 30~40g 就够;超市也有煮熟罐头,开罐即食更省事。"
+  "tips": "干豆密度高,当零食一人份 30~40g 就够;超市也有煮熟罐头,开罐即食更省事。",
+  "pic": "assets/img/food/chickpea.png"
  },
  {
   "id": "pumpkin",
@@ -1234,6 +2409,22 @@ const FOODS_A = [
   "c": 6.5,
   "f": 0.1,
   "fiber": 1,
+  "na": 1,
+  "k": 230,
+  "ca": 21,
+  "mg": 22,
+  "fe": 0.8,
+  "zn": 0.3,
+  "vc": 9,
+  "serving": {
+   "n": 200,
+   "unit": "克",
+   "note": "切块"
+  },
+  "scenes": [
+   "daily",
+   "pre"
+  ],
   "highlight": [
    "大碗低热量,蒸着吃自带甜味",
    "胡萝卜素丰富,对眼睛皮肤好",
@@ -1286,6 +2477,25 @@ const FOODS_A = [
   "c": 22,
   "f": 0.2,
   "fiber": 1.2,
+  "na": 1,
+  "k": 358,
+  "ca": 5,
+  "mg": 27,
+  "fe": 0.3,
+  "zn": 0.2,
+  "vc": 8.7,
+  "serving": {
+   "n": 1,
+   "unit": "根",
+   "note": "≈100g 可食部"
+  },
+  "scenes": [
+   "daily",
+   "pre",
+   "post",
+   "rec",
+   "comp"
+  ],
   "highlight": [
    "随身快碳,练前 1 根补能量,练后补糖原",
    "含钾,帮助肌肉正常工作",
@@ -1312,10 +2522,737 @@ const FOODS_A = [
    ]
   },
   "tips": "熟透的香蕉更甜、升糖略快,适合练前练后;减脂期当加餐一次一根就好。"
+ },
+ {
+  "id": "millet",
+  "name": "小米(干)",
+  "alias": "粟米",
+  "emoji": "🌾",
+  "cat": "staple",
+  "basis": "干重",
+  "goals": [
+   "gain",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 361,
+  "p": 9,
+  "c": 75,
+  "f": 3.1,
+  "fiber": 1.6,
+  "na": 4,
+  "k": 284,
+  "ca": 41,
+  "mg": 107,
+  "fe": 5.1,
+  "zn": 1.9,
+  "vc": 0,
+  "serving": {
+   "n": 50,
+   "unit": "克",
+   "note": "干重,约半碗"
+  },
+  "scenes": [
+   "daily",
+   "pre",
+   "rec"
+  ],
+  "highlight": [
+   "养胃好消化的杂粮",
+   "B族维生素和铁不错,粥饭皆宜"
+  ],
+  "pair": [
+   {
+    "name": "南瓜",
+    "why": "小米南瓜粥,温和好吸收"
+   }
+  ],
+  "recipe": {
+   "name": "小米粥",
+   "time": "约30分钟",
+   "steps": [
+    "小米淘洗,水开后下锅",
+    "小火煮20~25分钟至开花",
+    "可加南瓜丁同煮"
+   ]
+  },
+  "tips": "小米是主食,别当菜;血糖管理人群注意份量。"
+ },
+ {
+  "id": "black-rice",
+  "name": "黑米(干)",
+  "alias": "紫米 · 黑糯米(糙)",
+  "emoji": "🍚",
+  "cat": "staple",
+  "basis": "干重",
+  "goals": [
+   "gain",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 350,
+  "p": 9.4,
+  "c": 74,
+  "f": 3,
+  "fiber": 3.9,
+  "na": 7,
+  "k": 256,
+  "ca": 12,
+  "mg": 147,
+  "fe": 1.8,
+  "zn": 2.4,
+  "vc": 0,
+  "serving": {
+   "n": 50,
+   "unit": "克",
+   "note": "干重"
+  },
+  "scenes": [
+   "daily",
+   "pre",
+   "rec"
+  ],
+  "highlight": [
+   "花青素与纤维比白米多",
+   "煮粥做饭颜色好看有食欲"
+  ],
+  "pair": [
+   {
+    "name": "糙米",
+    "why": "黑米糙米同煮,粗细搭配"
+   }
+  ],
+  "recipe": {
+   "name": "黑米饭",
+   "time": "约60分钟(含浸泡)",
+   "steps": [
+    "黑米泡1~2小时",
+    "与白米按1:2混合,按平时水量煮",
+    "焖10分钟更软糯"
+   ]
+  },
+  "tips": "黑糯米更黏,血糖反应高一些;健身日常选黑米(非糯米)更好。"
+ },
+ {
+  "id": "buckwheat",
+  "name": "荞麦(干)",
+  "alias": "荞麦米",
+  "emoji": "🌾",
+  "cat": "staple",
+  "basis": "干重",
+  "goals": [
+   "gain",
+   "maintain",
+   "cut"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 337,
+  "p": 9.3,
+  "c": 73,
+  "f": 2.7,
+  "fiber": 5.5,
+  "na": 4,
+  "k": 400,
+  "ca": 25,
+  "mg": 231,
+  "fe": 6.2,
+  "zn": 2.4,
+  "vc": 0,
+  "serving": {
+   "n": 50,
+   "unit": "克",
+   "note": "干重"
+  },
+  "scenes": [
+   "daily",
+   "pre"
+  ],
+  "highlight": [
+   "镁和膳食纤维很丰富",
+   "升糖比白米平缓,减脂主食友好"
+  ],
+  "pair": [
+   {
+    "name": "鸡胸肉",
+    "why": "荞麦饭配鸡胸,干净增肌餐"
+   }
+  ],
+  "recipe": {
+   "name": "荞麦饭",
+   "time": "约40分钟(含浸泡)",
+   "steps": [
+    "荞麦米泡30分钟",
+    "与白米1:1或纯荞麦按1:1.5水煮",
+    "煮熟焖软"
+   ]
+  },
+  "tips": "纯荞麦口感松散,可先和白米混合过渡。"
+ },
+ {
+  "id": "coix",
+  "name": "薏米(干)",
+  "alias": "薏仁 · 薏苡仁",
+  "emoji": "🌾",
+  "cat": "staple",
+  "basis": "干重",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 357,
+  "p": 12.8,
+  "c": 71.1,
+  "f": 3.3,
+  "fiber": 2,
+  "na": 3,
+  "k": 235,
+  "ca": 42,
+  "mg": 88,
+  "fe": 3.6,
+  "zn": 1.7,
+  "vc": 0,
+  "serving": {
+   "n": 50,
+   "unit": "克",
+   "note": "干重"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "蛋白质在谷物里偏高",
+   "常和杂粮一起煮粥"
+  ],
+  "pair": [
+   {
+    "name": "红豆",
+    "why": "薏米红豆粥,传统搭配"
+   }
+  ],
+  "recipe": {
+   "name": "薏米粥/饭",
+   "time": "约50分钟",
+   "steps": [
+    "薏米泡1~2小时",
+    "加水煮粥或与米同煮",
+    "煮至软糯"
+   ]
+  },
+  "tips": "薏米偏寒凉,肠胃弱/孕期请谨慎、少量。"
+ },
+ {
+  "id": "yam",
+  "name": "山药(鲜)",
+  "alias": "淮山 · 铁棍山药",
+  "emoji": "🌿",
+  "cat": "staple",
+  "basis": "生重(去皮)",
+  "goals": [
+   "gain",
+   "maintain",
+   "cut"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 57,
+  "p": 1.9,
+  "c": 12.4,
+  "f": 0.2,
+  "fiber": 0.8,
+  "na": 18,
+  "k": 213,
+  "ca": 16,
+  "mg": 20,
+  "fe": 0.3,
+  "zn": 0.3,
+  "vc": 5,
+  "serving": {
+   "n": 100,
+   "unit": "克",
+   "note": "约1段"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "碳水足但热量不高",
+   "黏液蛋白好消化,肠胃友好"
+  ],
+  "pair": [
+   {
+    "name": "排骨",
+    "why": "山药排骨汤是增肌加餐汤品"
+   }
+  ],
+  "recipe": {
+   "name": "蒸山药",
+   "time": "约20分钟",
+   "steps": [
+    "山药去皮切段(戴手套防痒)",
+    "水开蒸15~20分钟",
+    "直接吃或蘸少量蜂蜜"
+   ]
+  },
+  "tips": "去皮黏液会让手痒,可戴手套或蒸熟后再去皮。"
+ },
+ {
+  "id": "taro",
+  "name": "芋头(鲜)",
+  "alias": "香芋 · 芋艿",
+  "emoji": "🍠",
+  "cat": "staple",
+  "basis": "生重(去皮)",
+  "goals": [
+   "maintain",
+   "cut"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 79,
+  "p": 2.2,
+  "c": 18.1,
+  "f": 0.2,
+  "fiber": 1,
+  "na": 33,
+  "k": 378,
+  "ca": 36,
+  "mg": 23,
+  "fe": 1,
+  "zn": 0.5,
+  "vc": 6,
+  "serving": {
+   "n": 100,
+   "unit": "克",
+   "note": "约2个"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "低热量饱腹主食",
+   "钾含量不错"
+  ],
+  "pair": [
+   {
+    "name": "牛奶",
+    "why": "芋泥牛奶杯,自制低糖甜品"
+   }
+  ],
+  "recipe": {
+   "name": "蒸芋头",
+   "time": "约25分钟",
+   "steps": [
+    "芋头去皮切块",
+    "水开蒸20~25分钟",
+    "筷子扎透即熟"
+   ]
+  },
+  "tips": "别把芋头当零食配糖水;当主食吃才算数。"
+ },
+ {
+  "id": "purple-sweet-potato",
+  "name": "紫薯(鲜)",
+  "alias": "紫心甘薯",
+  "emoji": "🍠",
+  "cat": "staple",
+  "basis": "生重(可食部)",
+  "goals": [
+   "gain",
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 82,
+  "p": 1.3,
+  "c": 19.1,
+  "f": 0.1,
+  "fiber": 3,
+  "na": 21,
+  "k": 270,
+  "ca": 18,
+  "mg": 16,
+  "fe": 0.7,
+  "zn": 0.3,
+  "vc": 12,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约1个中等"
+  },
+  "scenes": [
+   "daily",
+   "pre",
+   "rec"
+  ],
+  "highlight": [
+   "花青素+纤维,颜色越深营养越丰富",
+   "自带甜味,替代甜品"
+  ],
+  "pair": [
+   {
+    "name": "希腊酸奶",
+    "why": "紫薯泥+无糖酸奶,健康下午茶"
+   }
+  ],
+  "recipe": {
+   "name": "蒸紫薯",
+   "time": "约25分钟",
+   "steps": [
+    "紫薯洗净",
+    "水开蒸20~25分钟",
+    "扎透即熟,趁热或放凉吃"
+   ]
+  },
+  "tips": "和红薯一样属主食,一次1个中等大小即可。"
+ },
+ {
+  "id": "wholewheat-mantou",
+  "name": "全麦馒头",
+  "alias": "全麦馒头",
+  "emoji": "🥟",
+  "cat": "staple",
+  "basis": "即食(市售参考)",
+  "goals": [
+   "gain",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 228,
+  "p": 7.8,
+  "c": 46,
+  "f": 1.5,
+  "fiber": 4,
+  "na": 180,
+  "k": 90,
+  "ca": 10,
+  "mg": 40,
+  "fe": 2.5,
+  "zn": 1,
+  "vc": 0,
+  "serving": {
+   "n": 1,
+   "unit": "个",
+   "note": "约100g"
+  },
+  "scenes": [
+   "daily",
+   "pre"
+  ],
+  "highlight": [
+   "不用开火的主食,加热即食",
+   "比白馒头多纤维"
+  ],
+  "pair": [
+   {
+    "name": "鸡蛋",
+    "why": "全麦馒头+蛋+豆浆,中式快手早餐"
+   }
+  ],
+  "tips": "看配料表确认全麦粉为主;不同品牌热量差异大,按包装营养表为准。"
+ },
+ {
+  "id": "mung-bean",
+  "name": "绿豆(干)",
+  "alias": "绿豆",
+  "emoji": "🫘",
+  "cat": "staple",
+  "basis": "干重",
+  "goals": [
+   "maintain",
+   "cut"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 329,
+  "p": 21.6,
+  "c": 62,
+  "f": 0.8,
+  "fiber": 6.4,
+  "na": 3,
+  "k": 787,
+  "ca": 81,
+  "mg": 125,
+  "fe": 6.5,
+  "zn": 2.2,
+  "vc": 0,
+  "serving": {
+   "n": 40,
+   "unit": "克",
+   "note": "干重"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "蛋白纤维都不错的杂豆",
+   "夏天绿豆汤补水补钾"
+  ],
+  "pair": [
+   {
+    "name": "小米",
+    "why": "绿豆小米粥,粗细搭配"
+   }
+  ],
+  "recipe": {
+   "name": "绿豆汤",
+   "time": "约50分钟",
+   "steps": [
+    "绿豆泡1小时",
+    "加水大火烧开转小火煮30~40分钟",
+    "开花即可,可少糖或不加糖"
+   ]
+  },
+  "tips": "煮汤尽量别加大量糖,当主食算热量。"
+ },
+ {
+  "id": "adzuki",
+  "name": "赤小豆(干)",
+  "alias": "红小豆 · 红豆",
+  "emoji": "🫘",
+  "cat": "staple",
+  "basis": "干重",
+  "goals": [
+   "maintain",
+   "cut"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 309,
+  "p": 20.2,
+  "c": 63.4,
+  "f": 0.6,
+  "fiber": 7.7,
+  "na": 2,
+  "k": 860,
+  "ca": 74,
+  "mg": 138,
+  "fe": 7.4,
+  "zn": 2.2,
+  "vc": 0,
+  "serving": {
+   "n": 40,
+   "unit": "克",
+   "note": "干重"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "铁和纤维高,素食者友好",
+   "豆香浓,做杂粮饭好"
+  ],
+  "pair": [
+   {
+    "name": "薏米",
+    "why": "红豆薏米,经典养生粥"
+   }
+  ],
+  "recipe": {
+   "name": "红豆杂粮饭",
+   "time": "约90分钟(含浸泡)",
+   "steps": [
+    "赤小豆泡4小时以上或过夜",
+    "与米混合按平时水量煮",
+    "跳闸后焖15分钟"
+   ]
+  },
+  "tips": "赤小豆偏硬,一定提前泡;市售\"红豆沙\"多为加糖款,注意。"
+ },
+ {
+  "id": "white-kidney-bean",
+  "name": "白芸豆(干)",
+  "alias": "大白芸豆",
+  "emoji": "🫘",
+  "cat": "staple",
+  "basis": "干重",
+  "goals": [
+   "maintain",
+   "cut"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 341,
+  "p": 21.4,
+  "c": 61.2,
+  "f": 1.5,
+  "fiber": 7.4,
+  "na": 12,
+  "k": 1400,
+  "ca": 160,
+  "mg": 180,
+  "fe": 8.2,
+  "zn": 2.9,
+  "vc": 0,
+  "serving": {
+   "n": 40,
+   "unit": "克",
+   "note": "干重"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "钾、镁、纤维都高的大粒豆",
+   "煮后绵软,做沙拉炖菜合适"
+  ],
+  "pair": [
+   {
+    "name": "番茄",
+    "why": "白芸豆番茄炖菜,高纤饱腹"
+   }
+  ],
+  "recipe": {
+   "name": "茄汁白芸豆",
+   "time": "约90分钟(含浸泡)",
+   "steps": [
+    "白芸豆泡一夜,煮到软(约40分钟)",
+    "番茄炒出汁,下豆子",
+    "调味收汁即可"
+   ]
+  },
+  "tips": "务必彻底煮熟(生芸豆含凝集素);每次干豆40g左右就够。"
+ },
+ {
+  "id": "chestnut",
+  "name": "板栗(熟)",
+  "alias": "栗子 · 熟板栗",
+  "emoji": "🌰",
+  "cat": "staple",
+  "basis": "熟重(去壳)",
+  "goals": [
+   "gain",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 189,
+  "p": 4.2,
+  "c": 45.4,
+  "f": 1.1,
+  "fiber": 4.1,
+  "na": 3,
+  "k": 480,
+  "ca": 24,
+  "mg": 40,
+  "fe": 1.1,
+  "zn": 0.7,
+  "vc": 16,
+  "serving": {
+   "n": 6,
+   "unit": "个",
+   "note": "约60g"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "“坚果里更像主食”,碳水高脂肪低",
+   "秋冬烤栗子,是健康小零食"
+  ],
+  "pair": [
+   {
+    "name": "牛奶",
+    "why": "当主食加餐配牛奶,热量可控"
+   }
+  ],
+  "tips": "栗子是主食不是坚果,7~8颗约等于半碗饭,别当瓜子吃。"
  }
 ];
 
-const FOODS_B = [
+const FOODS_VEG = [
  {
   "id": "broccoli",
   "name": "西兰花",
@@ -1342,6 +3279,22 @@ const FOODS_B = [
   "c": 6.6,
   "f": 0.4,
   "fiber": 2.6,
+  "na": 33,
+  "k": 316,
+  "ca": 47,
+  "mg": 21,
+  "fe": 0.7,
+  "zn": 0.4,
+  "vc": 89,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "蔬菜里的「蛋白质含量担当」",
    "维C+膳食纤维都拿得出手",
@@ -1393,6 +3346,22 @@ const FOODS_B = [
   "c": 3.6,
   "f": 0.4,
   "fiber": 2.2,
+  "na": 79,
+  "k": 558,
+  "ca": 99,
+  "mg": 79,
+  "fe": 2.7,
+  "zn": 0.5,
+  "vc": 28,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "铁+叶酸+膳食纤维",
    "焯水后草酸大减,更好吸收",
@@ -1444,6 +3413,22 @@ const FOODS_B = [
   "c": 3.2,
   "f": 0.1,
   "fiber": 0.9,
+  "na": 18,
+  "k": 170,
+  "ca": 40,
+  "mg": 15,
+  "fe": 0.5,
+  "zn": 0.2,
+  "vc": 25,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "便宜大碗,热量极低,吃到饱也不怕",
    "维C含量其实不低",
@@ -1495,6 +3480,22 @@ const FOODS_B = [
   "c": 3.9,
   "f": 0.2,
   "fiber": 1.2,
+  "na": 5,
+  "k": 237,
+  "ca": 10,
+  "mg": 11,
+  "fe": 0.3,
+  "zn": 0.2,
+  "vc": 14,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "含水量高,热量几乎可以忽略",
    "熟吃番茄红素更好吸收",
@@ -1547,6 +3548,22 @@ const FOODS_B = [
   "c": 3.6,
   "f": 0.1,
   "fiber": 0.5,
+  "na": 2,
+  "k": 147,
+  "ca": 16,
+  "mg": 13,
+  "fe": 0.3,
+  "zn": 0.2,
+  "vc": 2.8,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "热量低到可以忽略",
    "含水量高,夏天解渴",
@@ -1598,6 +3615,22 @@ const FOODS_B = [
   "c": 9.6,
   "f": 0.2,
   "fiber": 2.8,
+  "na": 69,
+  "k": 320,
+  "ca": 33,
+  "mg": 12,
+  "fe": 0.3,
+  "zn": 0.2,
+  "vc": 5.9,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "β-胡萝卜素(维A前体)丰富",
    "甜甜的,能替代部分水果",
@@ -1628,7 +3661,7 @@ const FOODS_B = [
   "id": "bell-pepper",
   "name": "彩椒",
   "alias": "甜椒 · 灯笼椒",
-  "emoji": "🌶️", "pic": "assets/img/food/bell-pepper.png",
+  "emoji": "🌶️",
   "cat": "veg",
   "basis": "生重",
   "goals": [
@@ -1649,6 +3682,22 @@ const FOODS_B = [
   "c": 6,
   "f": 0.3,
   "fiber": 2.1,
+  "na": 4,
+  "k": 211,
+  "ca": 7,
+  "mg": 12,
+  "fe": 0.4,
+  "zn": 0.3,
+  "vc": 128,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "维C含量很高(比橙子还高)",
    "颜色鲜艳,看着就有食欲",
@@ -1674,7 +3723,8 @@ const FOODS_B = [
     "倒回鸡丁,调味翻匀"
    ]
   },
-  "tips": "红椒黄椒比青椒甜、维C也更高;彩椒别炒太软,脆一点更好吃。"
+  "tips": "红椒黄椒比青椒甜、维C也更高;彩椒别炒太软,脆一点更好吃。",
+  "pic": "assets/img/food/bell-pepper.png"
  },
  {
   "id": "asparagus",
@@ -1701,6 +3751,22 @@ const FOODS_B = [
   "c": 3.9,
   "f": 0.1,
   "fiber": 2.1,
+  "na": 2,
+  "k": 202,
+  "ca": 24,
+  "mg": 14,
+  "fe": 2.1,
+  "zn": 0.5,
+  "vc": 5.6,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "低热量+叶酸,营养密度不错",
    "口感脆嫩,自带「轻食高级感」",
@@ -1752,6 +3818,22 @@ const FOODS_B = [
   "c": 3.3,
   "f": 0.3,
   "fiber": 1,
+  "na": 3,
+  "k": 318,
+  "ca": 3,
+  "mg": 9,
+  "fe": 0.5,
+  "zn": 0.5,
+  "vc": 2.1,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "菌菇里蛋白质相对较高",
    "自带鲜味(谷氨酸),少盐也好吃",
@@ -1782,7 +3864,7 @@ const FOODS_B = [
   "id": "edamame",
   "name": "毛豆",
   "alias": "青豆 · 枝豆",
-  "emoji": "🥦", "pic": "assets/img/food/edamame.png",
+  "emoji": "🥦",
   "cat": "veg",
   "basis": "可食部(煮后去荚)",
   "goals": [
@@ -1804,6 +3886,22 @@ const FOODS_B = [
   "c": 11,
   "f": 5,
   "fiber": 4,
+  "na": 6,
+  "k": 436,
+  "ca": 63,
+  "mg": 64,
+  "fe": 3.5,
+  "zn": 1.4,
+  "vc": 6.1,
+  "serving": {
+   "n": 120,
+   "unit": "克",
+   "note": "约1掌心/1份"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "「零食型蔬菜」:植物蛋白+纤维都不错",
    "水煮撒点盐,追剧时替代薯片",
@@ -1828,13 +3926,969 @@ const FOODS_B = [
     "关火再泡 10 分钟,冷藏更好吃"
    ]
   },
-  "tips": "毛豆是豆类,碳水和热量比叶菜高,当加餐一小碗(约带壳 200g)就好。"
+  "tips": "毛豆是豆类,碳水和热量比叶菜高,当加餐一小碗(约带壳 200g)就好。",
+  "pic": "assets/img/food/edamame.png"
  },
+ {
+  "id": "youcai",
+  "name": "油菜(上海青)",
+  "alias": "上海青 · 青菜",
+  "emoji": "🥬",
+  "cat": "veg",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 23,
+  "p": 1.8,
+  "c": 3.8,
+  "f": 0.4,
+  "fiber": 1.1,
+  "na": 55,
+  "k": 210,
+  "ca": 108,
+  "mg": 22,
+  "fe": 1.8,
+  "zn": 0.4,
+  "vc": 36,
+  "serving": {
+   "n": 200,
+   "unit": "克",
+   "note": "约1盘"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "钙和维C在叶菜里都不错",
+   "便宜大碗,炒煮都方便"
+  ],
+  "pair": [
+   {
+    "name": "口蘑",
+    "why": "油菜口蘑,清炒鲜甜"
+   }
+  ],
+  "recipe": {
+   "name": "白灼油菜",
+   "time": "约5分钟",
+   "steps": [
+    "油菜洗净,沸水加几滴油焯1分钟",
+    "捞出淋少量生抽蒜末",
+    "或少油快炒1~2分钟"
+   ]
+  },
+  "tips": "茎叶一起快炒,别久煮,维生素保留更多。"
+ },
+ {
+  "id": "kongxincai",
+  "name": "空心菜",
+  "alias": "空心菜 · 蕹菜",
+  "emoji": "🥬",
+  "cat": "veg",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 20,
+  "p": 2.4,
+  "c": 3.1,
+  "f": 0.4,
+  "fiber": 2.2,
+  "na": 95,
+  "k": 243,
+  "ca": 99,
+  "mg": 29,
+  "fe": 2.5,
+  "zn": 0.4,
+  "vc": 25,
+  "serving": {
+   "n": 200,
+   "unit": "克",
+   "note": "约1盘"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "铁和钙在叶菜里偏高",
+   "焯水快炒,清脆爽口"
+  ],
+  "pair": [
+   {
+    "name": "蒜末",
+    "why": "蒜蓉空心菜是经典做法"
+   }
+  ],
+  "tips": "草酸不高,但高温快炒最保营养;叶菜洗后再切。"
+ },
+ {
+  "id": "tonghao",
+  "name": "茼蒿",
+  "alias": "茼蒿",
+  "emoji": "🌿",
+  "cat": "veg",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 24,
+  "p": 1.9,
+  "c": 3.9,
+  "f": 0.3,
+  "fiber": 1.6,
+  "na": 161,
+  "k": 220,
+  "ca": 73,
+  "mg": 20,
+  "fe": 2.5,
+  "zn": 0.6,
+  "vc": 18,
+  "serving": {
+   "n": 200,
+   "unit": "克",
+   "note": "约1盘"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "自带特殊香气,少调味也香",
+   "钠其实不低,别再猛放盐"
+  ],
+  "pair": [
+   {
+    "name": "豆腐",
+    "why": "茼蒿豆腐汤,清香清淡"
+   }
+  ],
+  "recipe": {
+   "name": "清炒茼蒿",
+   "time": "约4分钟",
+   "steps": [
+    "茼蒿切段洗净",
+    "大火热油,下蒜片炒香",
+    "倒茼蒿快炒1~2分钟,少盐出锅"
+   ]
+  },
+  "tips": "煮汤涮锅都好;注意钠含量,汤菜少加盐。"
+ },
+ {
+  "id": "jiucai",
+  "name": "韭菜",
+  "alias": "韭菜",
+  "emoji": "🌿",
+  "cat": "veg",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 26,
+  "p": 2.4,
+  "c": 4.6,
+  "f": 0.4,
+  "fiber": 1.6,
+  "na": 8,
+  "k": 247,
+  "ca": 42,
+  "mg": 25,
+  "fe": 1.6,
+  "zn": 0.4,
+  "vc": 24,
+  "serving": {
+   "n": 100,
+   "unit": "克",
+   "note": "约半盘"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "膳食纤维和胡萝卜素不错",
+   "当配菜炒蛋炒豆干都香"
+  ],
+  "pair": [
+   {
+    "name": "鸡蛋",
+    "why": "韭菜炒蛋,家常快手"
+   }
+  ],
+  "recipe": {
+   "name": "韭菜炒蛋",
+   "time": "约6分钟",
+   "steps": [
+    "韭菜切段,鸡蛋打散",
+    "先炒蛋盛出",
+    "下韭菜快炒20秒,倒回蛋调味"
+   ]
+  },
+  "tips": "韭菜别炒太久会出水变老;晚上吃多易胀气,看个人耐受。"
+ },
+ {
+  "id": "qincai",
+  "name": "芹菜",
+  "alias": "芹菜(茎)",
+  "emoji": "🥬",
+  "cat": "veg",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 16,
+  "p": 1.2,
+  "c": 3.3,
+  "f": 0.2,
+  "fiber": 1.4,
+  "na": 159,
+  "k": 260,
+  "ca": 80,
+  "mg": 18,
+  "fe": 0.8,
+  "zn": 0.2,
+  "vc": 8,
+  "serving": {
+   "n": 200,
+   "unit": "克",
+   "note": "约4~5根"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "热量极低,嚼着有饱腹感",
+   "自带咸鲜味,少盐也够味"
+  ],
+  "pair": [
+   {
+    "name": "香干",
+    "why": "芹菜炒香干,高蛋白素菜"
+   }
+  ],
+  "recipe": {
+   "name": "凉拌芹菜",
+   "time": "约8分钟",
+   "steps": [
+    "芹菜切段焯水30秒",
+    "过凉水,拌蒜末生抽醋香油",
+    "冷藏更脆"
+   ]
+  },
+  "tips": "芹菜含钠不低,用它入菜时少放盐。"
+ },
+ {
+  "id": "wosun",
+  "name": "莴笋",
+  "alias": "莴苣笋 · 青笋",
+  "emoji": "🥬",
+  "cat": "veg",
+  "basis": "生重(去皮茎)",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 15,
+  "p": 1,
+  "c": 2.8,
+  "f": 0.1,
+  "fiber": 0.6,
+  "na": 36,
+  "k": 212,
+  "ca": 23,
+  "mg": 19,
+  "fe": 0.9,
+  "zn": 0.3,
+  "vc": 4,
+  "serving": {
+   "n": 200,
+   "unit": "克",
+   "note": "约半根"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "热量低、口感脆",
+   "拌菜炒肉都清爽"
+  ],
+  "pair": [
+   {
+    "name": "虾仁",
+    "why": "莴笋炒虾仁,清甜低脂"
+   }
+  ],
+  "tips": "叶子别扔,营养比茎高,可焯水拌着吃。"
+ },
+ {
+  "id": "qiezi",
+  "name": "茄子",
+  "alias": "茄子",
+  "emoji": "🍆",
+  "cat": "veg",
+  "basis": "生重(可食部)",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 23,
+  "p": 1.1,
+  "c": 4.9,
+  "f": 0.2,
+  "fiber": 1.3,
+  "na": 5,
+  "k": 220,
+  "ca": 24,
+  "mg": 13,
+  "fe": 0.4,
+  "zn": 0.2,
+  "vc": 5,
+  "serving": {
+   "n": 200,
+   "unit": "克",
+   "note": "约1根"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "本身热量低,吸油是唯一问题",
+   "做法换成蒸/烤就健康"
+  ],
+  "pair": [
+   {
+    "name": "蒜",
+    "why": "蒜蓉蒸茄,不用油炸也好吃"
+   }
+  ],
+  "recipe": {
+   "name": "蒜蓉蒸茄子",
+   "time": "约15分钟",
+   "steps": [
+    "茄子对半切,蒸10~12分钟",
+    "撕条,拌蒜末生抽醋",
+    "少油泼或不泼"
+   ]
+  },
+  "tips": "红烧/油炸茄子吸油多,热量翻倍;健身优先蒸、烤、凉拌。"
+ },
+ {
+  "id": "xihulu",
+  "name": "西葫芦",
+  "alias": "角瓜 · 云南小瓜",
+  "emoji": "🥒",
+  "cat": "veg",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 19,
+  "p": 0.8,
+  "c": 3.8,
+  "f": 0.2,
+  "fiber": 1,
+  "na": 5,
+  "k": 260,
+  "ca": 20,
+  "mg": 20,
+  "fe": 0.3,
+  "zn": 0.3,
+  "vc": 9,
+  "serving": {
+   "n": 200,
+   "unit": "克",
+   "note": "约半根"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "水分足热量低",
+   "切丝煎饼/炒肉都不错"
+  ],
+  "pair": [
+   {
+    "name": "虾仁",
+    "why": "西葫芦炒虾仁,清爽低脂"
+   }
+  ],
+  "recipe": {
+   "name": "清炒西葫芦",
+   "time": "约5分钟",
+   "steps": [
+    "西葫芦切片",
+    "少油下锅炒1分钟",
+    "加一点水焖软,盐调味"
+   ]
+  },
+  "tips": "籽多时挖掉口感更好;别久炒出水太多。"
+ },
+ {
+  "id": "donggua",
+  "name": "冬瓜",
+  "alias": "冬瓜",
+  "emoji": "🥒",
+  "cat": "veg",
+  "basis": "生重(去皮瓤)",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 11,
+  "p": 0.4,
+  "c": 2.6,
+  "f": 0.2,
+  "fiber": 0.7,
+  "na": 1,
+  "k": 78,
+  "ca": 19,
+  "mg": 8,
+  "fe": 0.2,
+  "zn": 0.1,
+  "vc": 18,
+  "serving": {
+   "n": 250,
+   "unit": "克",
+   "note": "约1大块"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "含水量高,热量几乎可忽略",
+   "利尿感强,夏天汤菜首选"
+  ],
+  "pair": [
+   {
+    "name": "蛤蜊",
+    "why": "蛤蜊冬瓜汤,补电解质又低卡"
+   }
+  ],
+  "recipe": {
+   "name": "清炖冬瓜",
+   "time": "约15分钟",
+   "steps": [
+    "冬瓜去皮切块",
+    "水开煮10分钟",
+    "少盐白胡椒调味,可加虾皮"
+   ]
+  },
+  "tips": "减肥期可以大胆吃,但别配大量油和肥肉同炖。"
+ },
+ {
+  "id": "kugua",
+  "name": "苦瓜",
+  "alias": "凉瓜",
+  "emoji": "🥒",
+  "cat": "veg",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 19,
+  "p": 1,
+  "c": 3.7,
+  "f": 0.1,
+  "fiber": 1.4,
+  "na": 4,
+  "k": 260,
+  "ca": 14,
+  "mg": 18,
+  "fe": 0.7,
+  "zn": 0.3,
+  "vc": 56,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约1根"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "维C很高",
+   "苦味来自葫芦素,自带清热感"
+  ],
+  "pair": [
+   {
+    "name": "鸡蛋",
+    "why": "苦瓜炒蛋,苦味减半"
+   }
+  ],
+  "recipe": {
+   "name": "苦瓜炒蛋",
+   "time": "约10分钟",
+   "steps": [
+    "苦瓜去瓤切薄片,盐腌5分钟挤水",
+    "先炒蛋盛出",
+    "下苦瓜炒2分钟,倒回蛋调味"
+   ]
+  },
+  "tips": "怕苦就切薄+盐腌挤水或先焯水;孕期请谨慎食用苦瓜。"
+ },
+ {
+  "id": "enoki",
+  "name": "金针菇",
+  "alias": "金针菇",
+  "emoji": "🍄",
+  "cat": "veg",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 32,
+  "p": 2.4,
+  "c": 6,
+  "f": 0.4,
+  "fiber": 2.7,
+  "na": 4,
+  "k": 195,
+  "ca": 8,
+  "mg": 15,
+  "fe": 1.2,
+  "zn": 0.7,
+  "vc": 2,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约1把"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "低热量高纤维,涮锅煮汤都行",
+   "久煮不烂,口感弹牙"
+  ],
+  "pair": [
+   {
+    "name": "番茄",
+    "why": "番茄金针菇汤,酸爽开胃"
+   }
+  ],
+  "recipe": {
+   "name": "烤金针菇",
+   "time": "约15分钟",
+   "steps": [
+    "金针菇洗净铺锡纸",
+    "刷薄薄一层生抽蒜末",
+    "200℃烤10~12分钟"
+   ]
+  },
+  "tips": "有\"明天见\"梗是因为纤维难消化,细嚼慢咽即可。"
+ },
+ {
+  "id": "king-oyster",
+  "name": "杏鲍菇",
+  "alias": "杏鲍菇 · 刺芹侧耳",
+  "emoji": "🍄",
+  "cat": "veg",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 35,
+  "p": 1.3,
+  "c": 8.3,
+  "f": 0.1,
+  "fiber": 3.1,
+  "na": 3,
+  "k": 120,
+  "ca": 13,
+  "mg": 13,
+  "fe": 0.5,
+  "zn": 0.6,
+  "vc": 0,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约1根"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "口感像肉的菇类,素食“牛排”",
+   "纤维不错,热量低"
+  ],
+  "pair": [
+   {
+    "name": "西兰花",
+    "why": "手撕双菇拼盘,低脂增香"
+   }
+  ],
+  "tips": "手撕比刀切更易入味;先干煸出水分更香。"
+ },
+ {
+  "id": "wood-ear",
+  "name": "木耳(水发)",
+  "alias": "黑木耳 · 云耳",
+  "emoji": "🍄",
+  "cat": "veg",
+  "basis": "水发后",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 27,
+  "p": 1.5,
+  "c": 6,
+  "f": 0.2,
+  "fiber": 2.6,
+  "na": 8,
+  "k": 52,
+  "ca": 34,
+  "mg": 57,
+  "fe": 5.5,
+  "zn": 0.6,
+  "vc": 0,
+  "serving": {
+   "n": 100,
+   "unit": "克",
+   "note": "水发后约半碗"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "植物性铁和膳食纤维不错",
+   "泡发后低热量,凉拌炖汤都好"
+  ],
+  "pair": [
+   {
+    "name": "腐竹",
+    "why": "凉拌木耳腐竹,高纤高蛋白"
+   }
+  ],
+  "recipe": {
+   "name": "凉拌木耳",
+   "time": "约15分钟(不含泡发)",
+   "steps": [
+    "干木耳凉水泡发,去根",
+    "沸水焯2分钟,过凉水",
+    "拌蒜末、生抽、醋、香油"
+   ]
+  },
+  "tips": "干木耳别久泡过夜(可能产生毒素),泡发后尽快食用,现泡现吃。"
+ },
+ {
+  "id": "kelp",
+  "name": "海带(水发)",
+  "alias": "海带丝 · 昆布",
+  "emoji": "🌊",
+  "cat": "veg",
+  "basis": "水发后",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 16,
+  "p": 1.2,
+  "c": 2,
+  "f": 0.1,
+  "fiber": 0.5,
+  "na": 90,
+  "k": 246,
+  "ca": 46,
+  "mg": 61,
+  "fe": 0.9,
+  "zn": 0.2,
+  "vc": 0,
+  "serving": {
+   "n": 100,
+   "unit": "克",
+   "note": "水发后约半碗"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "碘和镁的天然来源",
+   "低热量,凉拌炖汤都好"
+  ],
+  "pair": [
+   {
+    "name": "豆腐",
+    "why": "海带豆腐汤,补碘又补钙"
+   }
+  ],
+  "recipe": {
+   "name": "凉拌海带丝",
+   "time": "约10分钟",
+   "steps": [
+    "水发海带切丝,焯水2分钟",
+    "过凉水,拌蒜末生抽醋",
+    "少油,冷藏更入味"
+   ]
+  },
+  "tips": "甲状腺疾病患者请遵医嘱控制海带等富碘食物。"
+ },
+ {
+  "id": "bean-sprout",
+  "name": "绿豆芽",
+  "alias": "豆芽 · 绿豆芽",
+  "emoji": "🌱",
+  "cat": "veg",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 16,
+  "p": 1.8,
+  "c": 2.8,
+  "f": 0.1,
+  "fiber": 0.8,
+  "na": 4,
+  "k": 68,
+  "ca": 9,
+  "mg": 18,
+  "fe": 0.4,
+  "zn": 0.3,
+  "vc": 6,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约1盘"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "热量低水分足,饱腹感好",
+   "便宜,配菜百搭"
+  ],
+  "pair": [
+   {
+    "name": "韭菜",
+    "why": "炒合菜,豆芽韭菜绝配"
+   }
+  ],
+  "tips": "大火快炒保持脆嫩;生豆芽有微生物风险,尽量做熟吃。"
+ },
+ {
+  "id": "onion",
+  "name": "洋葱",
+  "alias": "洋葱",
+  "emoji": "🧅",
+  "cat": "veg",
+  "basis": "生重",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 40,
+  "p": 1.1,
+  "c": 9.3,
+  "f": 0.1,
+  "fiber": 1.7,
+  "na": 4,
+  "k": 146,
+  "ca": 23,
+  "mg": 10,
+  "fe": 0.2,
+  "zn": 0.2,
+  "vc": 7,
+  "serving": {
+   "n": 100,
+   "unit": "克",
+   "note": "约半个"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "自带甜味,帮减脂餐少放糖",
+   "槲皮素等抗氧化物丰富"
+  ],
+  "pair": [
+   {
+    "name": "瘦牛肉",
+    "why": "洋葱炒牛肉,去腥增香"
+   }
+  ],
+  "recipe": {
+   "name": "洋葱炒蛋/炒肉",
+   "time": "约8分钟",
+   "steps": [
+    "洋葱切丝",
+    "少油炒至微黄出甜味",
+    "加蛋液或肉片同炒调味"
+   ]
+  },
+  "tips": "生吃更冲更“辣”,肠胃敏感建议做熟吃。"
+ }
+];
+
+const FOODS_FRUIT = [
  {
   "id": "blueberry",
   "name": "蓝莓",
   "alias": "越橘",
-  "emoji": "🍇", "pic": "assets/img/food/blueberry.png",
+  "emoji": "🍇",
   "cat": "fruit",
   "basis": "可食部",
   "goals": [
@@ -1855,6 +4909,22 @@ const FOODS_B = [
   "c": 14.5,
   "f": 0.3,
   "fiber": 2.4,
+  "na": 1,
+  "k": 77,
+  "ca": 6,
+  "mg": 6,
+  "fe": 0.3,
+  "zn": 0.2,
+  "vc": 9.7,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约1小碗"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "花青素抗氧化,颜色越深越明显",
    "低热量小颗,拌酸奶燕麦很方便",
@@ -1879,7 +4949,8 @@ const FOODS_B = [
     "可加少量核桃碎"
    ]
   },
-  "tips": "新鲜和冷冻营养差别不大,冷冻的通常便宜不少,做酸奶碗直接用。"
+  "tips": "新鲜和冷冻营养差别不大,冷冻的通常便宜不少,做酸奶碗直接用。",
+  "pic": "assets/img/food/blueberry.png"
  },
  {
   "id": "strawberry",
@@ -1906,6 +4977,22 @@ const FOODS_B = [
   "c": 7.7,
   "f": 0.3,
   "fiber": 2,
+  "na": 1,
+  "k": 153,
+  "ca": 16,
+  "mg": 13,
+  "fe": 0.4,
+  "zn": 0.1,
+  "vc": 59,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约1小碗"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "水果里含糖量偏低的一档",
    "维C丰富,酸甜解馋",
@@ -1958,6 +5045,22 @@ const FOODS_B = [
   "c": 13.8,
   "f": 0.2,
   "fiber": 2.4,
+  "na": 1,
+  "k": 107,
+  "ca": 6,
+  "mg": 5,
+  "fe": 0.1,
+  "zn": 0,
+  "vc": 4.6,
+  "serving": {
+   "n": 1,
+   "unit": "个",
+   "note": "≈200g"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "平价耐放,随身水果首选",
    "纤维主要在皮上,洗净带皮吃",
@@ -2010,6 +5113,22 @@ const FOODS_B = [
   "c": 11.8,
   "f": 0.1,
   "fiber": 2.4,
+  "na": 0,
+  "k": 181,
+  "ca": 40,
+  "mg": 10,
+  "fe": 0.1,
+  "zn": 0.1,
+  "vc": 53,
+  "serving": {
+   "n": 1,
+   "unit": "个",
+   "note": "≈180g"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "维C的经典来源",
    "水分足,饭后水果清爽解腻",
@@ -2061,6 +5180,22 @@ const FOODS_B = [
   "c": 14.7,
   "f": 0.5,
   "fiber": 3,
+  "na": 3,
+  "k": 312,
+  "ca": 34,
+  "mg": 17,
+  "fe": 0.3,
+  "zn": 0.1,
+  "vc": 93,
+  "serving": {
+   "n": 1,
+   "unit": "个",
+   "note": "≈70g"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "纤维+维C双高",
    "含猕猴桃蛋白酶,配酸奶/腌肉有嫩化作用",
@@ -2088,6 +5223,536 @@ const FOODS_B = [
   "tips": "和酸奶拌太久蛋白酶会让口感发苦,现拌现吃最好。"
  },
  {
+  "id": "grape",
+  "name": "葡萄",
+  "alias": "葡萄 · 提子",
+  "emoji": "🍇",
+  "cat": "fruit",
+  "basis": "可食部",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": true,
+  "snack": true,
+  "kcal": 69,
+  "p": 0.6,
+  "c": 18.1,
+  "f": 0.2,
+  "fiber": 1,
+  "na": 2,
+  "k": 191,
+  "ca": 10,
+  "mg": 7,
+  "fe": 0.4,
+  "zn": 0.1,
+  "vc": 3.2,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约1小串"
+  },
+  "scenes": [
+   "daily",
+   "rec",
+   "comp"
+  ],
+  "highlight": [
+   "小颗方便吃,注意别“一颗接一颗”",
+   "提子更甜,含糖偏高"
+  ],
+  "tips": "皮和籽都有营养但难消化,洗干净连皮吃适量即可;血糖高选量少些。",
+  "pair": [
+   {
+    "name": "希腊酸奶",
+    "why": "酸甜水果拌无糖酸奶,补蛋白又解馋"
+   }
+  ]
+ },
+ {
+  "id": "cherry",
+  "name": "樱桃",
+  "alias": "车厘子",
+  "emoji": "🍒",
+  "cat": "fruit",
+  "basis": "可食部",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 46,
+  "p": 1.1,
+  "c": 10.6,
+  "f": 0.2,
+  "fiber": 1.6,
+  "na": 0,
+  "k": 222,
+  "ca": 13,
+  "mg": 11,
+  "fe": 0.4,
+  "zn": 0.1,
+  "vc": 7,
+  "serving": {
+   "n": 100,
+   "unit": "克",
+   "note": "约15颗"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "抗氧化物花色苷丰富",
+   "含糖不高,酸甜解馋"
+  ],
+  "tips": "车厘子个头大,10~15颗就一份;别当成整碗零食。",
+  "pair": [
+   {
+    "name": "希腊酸奶",
+    "why": "酸甜水果拌无糖酸奶,补蛋白又解馋"
+   }
+  ]
+ },
+ {
+  "id": "pear",
+  "name": "梨",
+  "alias": "梨 · 雪梨",
+  "emoji": "🍐",
+  "cat": "fruit",
+  "basis": "可食部",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 57,
+  "p": 0.4,
+  "c": 15.2,
+  "f": 0.1,
+  "fiber": 2.8,
+  "na": 1,
+  "k": 119,
+  "ca": 9,
+  "mg": 8,
+  "fe": 0.2,
+  "zn": 0.1,
+  "vc": 5,
+  "serving": {
+   "n": 1,
+   "unit": "个",
+   "note": "≈200g可食部"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "水分和纤维足,饱腹感好",
+   "生吃脆,煮水润燥"
+  ],
+  "tips": "梨皮纤维更多,洗净带皮吃;别削掉再煮糖水加糖。",
+  "pair": [
+   {
+    "name": "希腊酸奶",
+    "why": "酸甜水果拌无糖酸奶,补蛋白又解馋"
+   }
+  ]
+ },
+ {
+  "id": "peach",
+  "name": "桃",
+  "alias": "桃子 · 水蜜桃",
+  "emoji": "🍑",
+  "cat": "fruit",
+  "basis": "可食部",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 42,
+  "p": 0.9,
+  "c": 10.1,
+  "f": 0.1,
+  "fiber": 1.5,
+  "na": 0,
+  "k": 190,
+  "ca": 6,
+  "mg": 9,
+  "fe": 0.3,
+  "zn": 0.2,
+  "vc": 6.6,
+  "serving": {
+   "n": 1,
+   "unit": "个",
+   "note": "≈180g可食部"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "热量低,清甜解渴",
+   "毛桃表皮绒毛要洗净或去皮"
+  ],
+  "tips": "黄桃罐头加了大量糖,优先吃新鲜桃。",
+  "pair": [
+   {
+    "name": "希腊酸奶",
+    "why": "酸甜水果拌无糖酸奶,补蛋白又解馋"
+   }
+  ]
+ },
+ {
+  "id": "mango",
+  "name": "芒果",
+  "alias": "芒果",
+  "emoji": "🥭",
+  "cat": "fruit",
+  "basis": "可食部",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 60,
+  "p": 0.8,
+  "c": 15,
+  "f": 0.4,
+  "fiber": 1.6,
+  "na": 1,
+  "k": 168,
+  "ca": 11,
+  "mg": 10,
+  "fe": 0.2,
+  "zn": 0.1,
+  "vc": 36,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约半个大果"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "维C和胡萝卜素不错",
+   "甜度高,当加餐一次别吃一整个"
+  ],
+  "tips": "对漆树科(芒果/腰果)过敏者注意;切丁冷藏更好吃。",
+  "pair": [
+   {
+    "name": "希腊酸奶",
+    "why": "酸甜水果拌无糖酸奶,补蛋白又解馋"
+   }
+  ]
+ },
+ {
+  "id": "pineapple",
+  "name": "菠萝",
+  "alias": "凤梨",
+  "emoji": "🍍",
+  "cat": "fruit",
+  "basis": "可食部",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 50,
+  "p": 0.5,
+  "c": 13.1,
+  "f": 0.1,
+  "fiber": 1.4,
+  "na": 1,
+  "k": 109,
+  "ca": 13,
+  "mg": 12,
+  "fe": 0.3,
+  "zn": 0.1,
+  "vc": 48,
+  "serving": {
+   "n": 150,
+   "unit": "克",
+   "note": "约1/4个"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "维C高,酸甜开胃",
+   "含菠萝蛋白酶,配肉可嫩化"
+  ],
+  "tips": "盐水泡或加热可减轻麻嘴感;别泡糖水当甜品。",
+  "pair": [
+   {
+    "name": "希腊酸奶",
+    "why": "酸甜水果拌无糖酸奶,补蛋白又解馋"
+   }
+  ]
+ },
+ {
+  "id": "pomelo",
+  "name": "柚子",
+  "alias": "柚子 · 文旦",
+  "emoji": "🍊",
+  "cat": "fruit",
+  "basis": "可食部",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 42,
+  "p": 0.8,
+  "c": 9.6,
+  "f": 0.2,
+  "fiber": 1,
+  "na": 1,
+  "k": 216,
+  "ca": 12,
+  "mg": 9,
+  "fe": 0.1,
+  "zn": 0.1,
+  "vc": 61,
+  "serving": {
+   "n": 200,
+   "unit": "克",
+   "note": "约2~3瓣"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "含糖低、水分足、维C高",
+   "果肉纤维多,饱腹"
+  ],
+  "tips": "服药人群注意柚子/西柚会影响部分药物代谢,遵医嘱。",
+  "pair": [
+   {
+    "name": "希腊酸奶",
+    "why": "酸甜水果拌无糖酸奶,补蛋白又解馋"
+   }
+  ]
+ },
+ {
+  "id": "watermelon",
+  "name": "西瓜",
+  "alias": "西瓜",
+  "emoji": "🍉",
+  "cat": "fruit",
+  "basis": "可食部",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": true,
+  "snack": true,
+  "kcal": 31,
+  "p": 0.6,
+  "c": 7.6,
+  "f": 0.2,
+  "fiber": 0.4,
+  "na": 1,
+  "k": 112,
+  "ca": 7,
+  "mg": 10,
+  "fe": 0.2,
+  "zn": 0.1,
+  "vc": 8.1,
+  "serving": {
+   "n": 300,
+   "unit": "克",
+   "note": "约2小块"
+  },
+  "scenes": [
+   "daily",
+   "rec",
+   "comp"
+  ],
+  "highlight": [
+   "含水量高,夏天补水神器",
+   "看着不甜其实含糖不低,别半个半个吃"
+  ],
+  "tips": "冰镇西瓜一次2~3小块足够,别当水喝。",
+  "pair": [
+   {
+    "name": "希腊酸奶",
+    "why": "酸甜水果拌无糖酸奶,补蛋白又解馋"
+   }
+  ]
+ },
+ {
+  "id": "dragon-fruit",
+  "name": "火龙果",
+  "alias": "火龙果 · 红心火龙果",
+  "emoji": "🍈",
+  "cat": "fruit",
+  "basis": "可食部",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 55,
+  "p": 1.1,
+  "c": 13.3,
+  "f": 0.2,
+  "fiber": 2.9,
+  "na": 2,
+  "k": 290,
+  "ca": 13,
+  "mg": 30,
+  "fe": 0.3,
+  "zn": 0.3,
+  "vc": 9,
+  "serving": {
+   "n": 1,
+   "unit": "个",
+   "note": "≈200g可食部"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "纤维高,红心品种抗氧化物更多",
+   "籽助排便,肠胃弱别贪多"
+  ],
+  "tips": "红心火龙果吃完\"红便\"是花青素正常现象;一次一个即可。",
+  "pair": [
+   {
+    "name": "希腊酸奶",
+    "why": "酸甜水果拌无糖酸奶,补蛋白又解馋"
+   }
+  ]
+ },
+ {
+  "id": "lemon",
+  "name": "柠檬",
+  "alias": "柠檬",
+  "emoji": "🍋",
+  "cat": "fruit",
+  "basis": "可食部",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 37,
+  "p": 1.1,
+  "c": 9.3,
+  "f": 0.3,
+  "fiber": 2.8,
+  "na": 2,
+  "k": 138,
+  "ca": 26,
+  "mg": 8,
+  "fe": 0.6,
+  "zn": 0.1,
+  "vc": 53,
+  "serving": {
+   "n": 2,
+   "unit": "片",
+   "note": "泡水用"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "维C不错,泡水提味少放糖",
+   "皮有香气,可做调味"
+  ],
+  "tips": "主要当调味/泡水,别直接当水果啃;蜂蜜柠檬水注意蜂蜜也是糖。",
+  "pair": [
+   {
+    "name": "希腊酸奶",
+    "why": "酸甜水果拌无糖酸奶,补蛋白又解馋"
+   }
+  ]
+ }
+];
+
+const FOODS_FAT = [
+ {
   "id": "avocado",
   "name": "牛油果",
   "alias": "鳄梨",
@@ -2113,6 +5778,21 @@ const FOODS_B = [
   "c": 8.5,
   "f": 14.7,
   "fiber": 6.7,
+  "na": 7,
+  "k": 485,
+  "ca": 12,
+  "mg": 29,
+  "fe": 0.6,
+  "zn": 0.6,
+  "vc": 10,
+  "serving": {
+   "n": 75,
+   "unit": "克",
+   "note": "约半个"
+  },
+  "scenes": [
+   "daily"
+  ],
   "highlight": [
    "单不饱和脂肪酸为主,是「好脂肪」",
    "纤维高,自带奶油感很饱腹",
@@ -2164,6 +5844,22 @@ const FOODS_B = [
   "c": 21.6,
   "f": 49.9,
   "fiber": 12.5,
+  "na": 1,
+  "k": 733,
+  "ca": 264,
+  "mg": 268,
+  "fe": 3.7,
+  "zn": 3.1,
+  "vc": 0,
+  "serving": {
+   "n": 20,
+   "unit": "克",
+   "note": "约1小把"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "蛋白质+维E+镁,坚果里的全能选手",
    "无盐原味最健康",
@@ -2215,6 +5911,22 @@ const FOODS_B = [
   "c": 13.7,
   "f": 65.2,
   "fiber": 6.7,
+  "na": 2,
+  "k": 441,
+  "ca": 98,
+  "mg": 158,
+  "fe": 2.9,
+  "zn": 3.1,
+  "vc": 1.3,
+  "serving": {
+   "n": 20,
+   "unit": "克",
+   "note": "约2~3个"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
   "highlight": [
    "含植物性 Omega-3(ALA)的坚果",
    "对脑和心血管友好",
@@ -2266,6 +5978,24 @@ const FOODS_B = [
   "c": 20,
   "f": 50,
   "fiber": 6,
+  "na": 430,
+  "k": 649,
+  "ca": 54,
+  "mg": 168,
+  "fe": 1.9,
+  "zn": 2.5,
+  "vc": 0,
+  "serving": {
+   "n": 15,
+   "unit": "克",
+   "note": "约1勺"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec",
+   "comp"
+  ],
   "highlight": [
    "抹面包、蘸苹果都好吃的「蛋白酱」",
    "选 100% 花生、无添加糖油的",
@@ -2296,7 +6026,7 @@ const FOODS_B = [
   "id": "olive-oil",
   "name": "橄榄油",
   "alias": "初榨橄榄油",
-  "emoji": "🛢️", "pic": "assets/img/food/olive-oil.png",
+  "emoji": "🛢️",
   "cat": "fat",
   "basis": "液态油(1勺约10g)",
   "goals": [
@@ -2318,6 +6048,21 @@ const FOODS_B = [
   "c": 0,
   "f": 99.9,
   "fiber": 0,
+  "na": 1,
+  "k": 0,
+  "ca": 0,
+  "mg": 0,
+  "fe": 0,
+  "zn": 0,
+  "vc": 0,
+  "serving": {
+   "n": 10,
+   "unit": "克",
+   "note": "约1勺"
+  },
+  "scenes": [
+   "daily"
+  ],
   "highlight": [
    "单不饱和脂肪酸为主,厨房里的「好油」",
    "凉拌、低温煎炒都很合适",
@@ -2342,8 +6087,1279 @@ const FOODS_B = [
     "摇匀,淋在沙拉上"
    ]
   },
-  "tips": "再健康的油也是油,一人一餐 5~10g 足够;初榨橄榄油适合凉拌,高温油炸交给烟点高的油。"
+  "tips": "再健康的油也是油,一人一餐 5~10g 足够;初榨橄榄油适合凉拌,高温油炸交给烟点高的油。",
+  "pic": "assets/img/food/olive-oil.png"
+ },
+ {
+  "id": "cashew",
+  "name": "腰果",
+  "alias": "腰果",
+  "emoji": "🥜",
+  "cat": "fat",
+  "basis": "可食部(原味)",
+  "goals": [
+   "gain",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": true
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 553,
+  "p": 18.2,
+  "c": 30.2,
+  "f": 43.9,
+  "fiber": 3.3,
+  "na": 12,
+  "k": 660,
+  "ca": 37,
+  "mg": 292,
+  "fe": 6.7,
+  "zn": 5.8,
+  "vc": 0.5,
+  "serving": {
+   "n": 20,
+   "unit": "克",
+   "note": "约15粒"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "镁和锌都不错,口感香脆",
+   "选原味无盐款"
+  ],
+  "tips": "减脂期一天一小把(约15~20粒)就够,别当瓜子磕。",
+  "pair": [
+   {
+    "name": "酸奶/燕麦",
+    "why": "一小份撒在酸奶或燕麦里,提香增饱腹"
+   }
+  ]
+ },
+ {
+  "id": "pistachio",
+  "name": "开心果",
+  "alias": "开心果",
+  "emoji": "🥜",
+  "cat": "fat",
+  "basis": "可食部(去壳原味)",
+  "goals": [
+   "gain",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": true
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 562,
+  "p": 20.6,
+  "c": 28,
+  "f": 45.3,
+  "fiber": 10,
+  "na": 1,
+  "k": 1025,
+  "ca": 105,
+  "mg": 121,
+  "fe": 3.9,
+  "zn": 2.2,
+  "vc": 5,
+  "serving": {
+   "n": 20,
+   "unit": "克",
+   "note": "去壳约1把"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "蛋白质和钾在坚果里偏高",
+   "带壳吃更慢,不容易吃过量"
+  ],
+  "tips": "优先原味带壳;盐焗款钠高,注意看配料。",
+  "pair": [
+   {
+    "name": "酸奶/燕麦",
+    "why": "一小份撒在酸奶或燕麦里,提香增饱腹"
+   }
+  ]
+ },
+ {
+  "id": "macadamia",
+  "name": "夏威夷果",
+  "alias": "澳洲坚果 · 夏威夷果",
+  "emoji": "🌰",
+  "cat": "fat",
+  "basis": "可食部(原味)",
+  "goals": [
+   "gain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": true
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 718,
+  "p": 7.9,
+  "c": 13.8,
+  "f": 75.8,
+  "fiber": 8.6,
+  "na": 5,
+  "k": 368,
+  "ca": 85,
+  "mg": 130,
+  "fe": 3.7,
+  "zn": 1.3,
+  "vc": 1.2,
+  "serving": {
+   "n": 15,
+   "unit": "克",
+   "note": "约8~10颗"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "单不饱和脂肪高,增肌期补能量好",
+   "热量很高,严格限量"
+  ],
+  "tips": "每天8~10颗足够;买原味,别买奶油/盐焗调味款。",
+  "pair": [
+   {
+    "name": "酸奶/燕麦",
+    "why": "一小份撒在酸奶或燕麦里,提香增饱腹"
+   }
+  ]
+ },
+ {
+  "id": "chia",
+  "name": "奇亚籽",
+  "alias": "奇亚籽",
+  "emoji": "🌱",
+  "cat": "fat",
+  "basis": "干重",
+  "goals": [
+   "maintain",
+   "cut"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 486,
+  "p": 16.5,
+  "c": 42.1,
+  "f": 30.7,
+  "fiber": 34,
+  "na": 16,
+  "k": 407,
+  "ca": 631,
+  "mg": 335,
+  "fe": 7.7,
+  "zn": 4.6,
+  "vc": 1.6,
+  "serving": {
+   "n": 15,
+   "unit": "克",
+   "note": "约1勺"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "纤维和钙镁非常高,吸水力强",
+   "泡发后拌酸奶燕麦,饱腹"
+  ],
+  "tips": "遇水膨胀很多,记得泡发再吃,别干吞;每天10~15g即可。",
+  "pair": [
+   {
+    "name": "酸奶/燕麦",
+    "why": "一小份撒在酸奶或燕麦里,提香增饱腹"
+   }
+  ]
+ },
+ {
+  "id": "flax",
+  "name": "亚麻籽(熟)",
+  "alias": "亚麻籽 · 胡麻籽",
+  "emoji": "🌰",
+  "cat": "fat",
+  "basis": "熟籽(干)",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 534,
+  "p": 18.3,
+  "c": 28.9,
+  "f": 42.2,
+  "fiber": 27,
+  "na": 30,
+  "k": 813,
+  "ca": 255,
+  "mg": 392,
+  "fe": 5.7,
+  "zn": 4.3,
+  "vc": 0.6,
+  "serving": {
+   "n": 15,
+   "unit": "克",
+   "note": "约1勺"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "植物性Omega-3(ALA)来源",
+   "磨碎后更好吸收"
+  ],
+  "tips": "要买熟制或自己炒熟、磨粉食用,生籽有微量风险且难消化。",
+  "pair": [
+   {
+    "name": "酸奶/燕麦",
+    "why": "一小份撒在酸奶或燕麦里,提香增饱腹"
+   }
+  ]
  }
 ];
 
-const FOODS = FOODS_A.concat(FOODS_B);
+const FOODS_DRINK = [
+ {
+  "id": "black-coffee",
+  "name": "黑咖啡(无糖)",
+  "alias": "美式 · 纯咖啡",
+  "emoji": "☕",
+  "cat": "drink",
+  "basis": "每100ml(冲泡/美式参考)",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 1,
+  "p": 0.2,
+  "c": 0,
+  "f": 0,
+  "fiber": 0,
+  "na": 2,
+  "k": 49,
+  "ca": 2,
+  "mg": 3,
+  "fe": 0,
+  "zn": 0,
+  "vc": 0,
+  "serving": {
+   "n": 240,
+   "unit": "毫升",
+   "note": "约1杯"
+  },
+  "scenes": [
+   "pre",
+   "daily",
+   "comp"
+  ],
+  "highlight": [
+   "咖啡因能提升警觉和耐力表现(循证充分)",
+   "不加糖奶时热量几乎为零"
+  ],
+  "pair": [
+   {
+    "name": "练前30~60分钟",
+    "why": "适量咖啡因(约3~6mg/kg体重)常作为练前提升"
+   }
+  ],
+  "recipe": {
+   "name": "怎么喝更聪明",
+   "time": "1分钟",
+   "steps": [
+    "练前30~60分钟喝1杯(约100~200mg咖啡因)",
+    "敏感者减半,别空腹猛灌",
+    "下午后避免影响睡眠"
+   ]
+  },
+  "tips": "咖啡因会随咖啡豆/浓度差异很大,注意总量;睡前6~8小时尽量不喝。"
+ },
+ {
+  "id": "green-tea",
+  "name": "绿茶(无糖)",
+  "alias": "绿茶 · 龙井/毛峰",
+  "emoji": "🍵",
+  "cat": "drink",
+  "basis": "每100ml(冲泡参考)",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 1,
+  "p": 0,
+  "c": 0.2,
+  "f": 0,
+  "fiber": 0,
+  "na": 4,
+  "k": 8,
+  "ca": 3,
+  "mg": 2,
+  "fe": 0.3,
+  "zn": 0.03,
+  "vc": 0,
+  "serving": {
+   "n": 300,
+   "unit": "毫升",
+   "note": "约1大杯"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "茶多酚与少量咖啡因,温和提神",
+   "零热量,全天补水好选择"
+  ],
+  "tips": "别加糖和奶精;茶垢多不代表浓,泡浓了咖啡因也高。",
+  "pair": [
+   {
+    "name": "白开水",
+    "why": "饮品是补水的补充,日常基础还是白开水"
+   }
+  ]
+ },
+ {
+  "id": "coconut-water",
+  "name": "椰子水",
+  "alias": "天然椰子水",
+  "emoji": "🥥",
+  "cat": "drink",
+  "basis": "每100ml",
+  "goals": [
+   "maintain",
+   "cut"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 19,
+  "p": 0.7,
+  "c": 3.7,
+  "f": 0.2,
+  "fiber": 0,
+  "na": 105,
+  "k": 250,
+  "ca": 24,
+  "mg": 25,
+  "fe": 0.3,
+  "zn": 0.1,
+  "vc": 2.4,
+  "serving": {
+   "n": 250,
+   "unit": "毫升",
+   "note": "约1杯"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "天然含钾的补水饮品",
+   "比运动饮料热量低、更“天然”"
+  ],
+  "tips": "含天然糖和钾,肾脏病患者请遵医嘱;别把它当白水一天喝几升。",
+  "pair": [
+   {
+    "name": "白开水",
+    "why": "饮品是补水的补充,日常基础还是白开水"
+   }
+  ]
+ },
+ {
+  "id": "sports-drink",
+  "name": "运动饮料(市售电解质型)",
+  "alias": "电解质饮料 · 运动饮料",
+  "emoji": "🥤",
+  "cat": "drink",
+  "basis": "每100ml(市售参考)",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": true,
+  "snack": false,
+  "kcal": 25,
+  "p": 0,
+  "c": 6.2,
+  "f": 0,
+  "fiber": 0,
+  "na": 45,
+  "k": 13,
+  "ca": 0,
+  "mg": 0,
+  "fe": 0,
+  "zn": 0,
+  "vc": 0,
+  "serving": {
+   "n": 250,
+   "unit": "毫升",
+   "note": "约半瓶(看包装)"
+  },
+  "scenes": [
+   "pre",
+   "comp"
+  ],
+  "highlight": [
+   "同时补糖和钠钾,适合长时间/大量出汗训练",
+   "短于60分钟的轻训练一般用不上"
+  ],
+  "tips": "市售品牌含糖含钠差异大,认准包装营养表;减脂期选无糖款但注意电解质含量是否够。",
+  "pair": [
+   {
+    "name": "白开水",
+    "why": "饮品是补水的补充,日常基础还是白开水"
+   }
+  ]
+ },
+ {
+  "id": "orange-juice",
+  "name": "100%橙汁(市售)",
+  "alias": "纯橙汁 · NFC橙汁",
+  "emoji": "🧃",
+  "cat": "drink",
+  "basis": "每100ml(市售参考)",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": true,
+  "snack": false,
+  "kcal": 45,
+  "p": 0.7,
+  "c": 10.4,
+  "f": 0.2,
+  "fiber": 0.2,
+  "na": 1,
+  "k": 200,
+  "ca": 11,
+  "mg": 11,
+  "fe": 0.2,
+  "zn": 0.1,
+  "vc": 30,
+  "serving": {
+   "n": 200,
+   "unit": "毫升",
+   "note": "约1杯"
+  },
+  "scenes": [
+   "post",
+   "rec"
+  ],
+  "highlight": [
+   "维C不错,练后想快速补糖可选",
+   "但榨汁丢纤维,不如直接吃橙子"
+  ],
+  "tips": "一杯≈1.5~2个橙子的糖;减脂期优先吃果肉,果汁限量。",
+  "pair": [
+   {
+    "name": "白开水",
+    "why": "饮品是补水的补充,日常基础还是白开水"
+   }
+  ]
+ },
+ {
+  "id": "cola",
+  "name": "可乐(含糖型)",
+  "alias": "可乐 · 汽水",
+  "emoji": "🥤",
+  "cat": "drink",
+  "basis": "每100ml",
+  "goals": [],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": true,
+  "snack": false,
+  "kcal": 43,
+  "p": 0,
+  "c": 10.6,
+  "f": 0,
+  "fiber": 0,
+  "na": 8,
+  "k": 1,
+  "ca": 0,
+  "mg": 0,
+  "fe": 0,
+  "zn": 0,
+  "vc": 0,
+  "serving": {
+   "n": 330,
+   "unit": "毫升",
+   "note": "约1罐"
+  },
+  "scenes": [],
+  "highlight": [
+   "警示条目:一罐约含35g糖",
+   "除了快糖几乎无营养"
+  ],
+  "tips": "偶尔解馋可以,健身/减脂期优先无糖款或直接喝水;别把它当补糖工具。",
+  "pair": [
+   {
+    "name": "白开水",
+    "why": "饮品是补水的补充,日常基础还是白开水"
+   }
+  ]
+ },
+ {
+  "id": "lowfat-milk",
+  "name": "低脂牛奶",
+  "alias": "低脂奶 · 脱脂奶(接近)",
+  "emoji": "🥛",
+  "cat": "drink",
+  "basis": "每100ml",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": true,
+   "nut": false
+  },
+  "quick": true,
+  "snack": true,
+  "kcal": 46,
+  "p": 3.4,
+  "c": 4.9,
+  "f": 1.5,
+  "fiber": 0,
+  "na": 44,
+  "k": 160,
+  "ca": 123,
+  "mg": 12,
+  "fe": 0.03,
+  "zn": 0.5,
+  "vc": 0,
+  "serving": {
+   "n": 250,
+   "unit": "毫升",
+   "note": "约1杯"
+  },
+  "scenes": [
+   "daily",
+   "post",
+   "rec"
+  ],
+  "highlight": [
+   "蛋白质和钙和全脂差不多,脂肪减半",
+   "热量比全脂低,减脂期友好"
+  ],
+  "tips": "脱脂更低脂但饱腹感略差;按自己热量预算选全脂/低脂/脱脂都行。",
+  "pair": [
+   {
+    "name": "白开水",
+    "why": "饮品是补水的补充,日常基础还是白开水"
+   }
+  ]
+ },
+ {
+  "id": "sparkling-water",
+  "name": "无糖气泡水",
+  "alias": "气泡水 · 苏打水(无糖)",
+  "emoji": "💧",
+  "cat": "drink",
+  "basis": "每100ml",
+  "goals": [
+   "cut",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 0,
+  "p": 0,
+  "c": 0,
+  "f": 0,
+  "fiber": 0,
+  "na": 12,
+  "k": 1,
+  "ca": 0,
+  "mg": 0,
+  "fe": 0,
+  "zn": 0,
+  "vc": 0,
+  "serving": {
+   "n": 330,
+   "unit": "毫升",
+   "note": "约1瓶"
+  },
+  "scenes": [
+   "daily",
+   "rec"
+  ],
+  "highlight": [
+   "零热量,想喝汽水时的替代",
+   "加两片柠檬更愿意多喝水"
+  ],
+  "tips": "“零糖”不等于“健康水”,它只是补水选项;日常解渴白水最稳。",
+  "pair": [
+   {
+    "name": "白开水",
+    "why": "饮品是补水的补充,日常基础还是白开水"
+   }
+  ]
+ }
+];
+
+const FOODS_SPORT = [
+ {
+  "id": "whey",
+  "name": "乳清蛋白粉",
+  "alias": "乳清蛋白 · 蛋白粉",
+  "emoji": "🥛",
+  "cat": "sport",
+  "basis": "每100g粉(市售参考)",
+  "goals": [
+   "gain",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": true,
+   "nut": false
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 400,
+  "p": 75,
+  "c": 8,
+  "f": 5,
+  "fiber": 0,
+  "na": 350,
+  "k": 500,
+  "ca": 500,
+  "mg": 80,
+  "fe": 0.5,
+  "zn": 1,
+  "vc": 0,
+  "serving": {
+   "n": 30,
+   "unit": "克",
+   "note": "约1勺,蛋白约22g"
+  },
+  "scenes": [
+   "post",
+   "rec"
+  ],
+  "highlight": [
+   "吸收快的方便蛋白,练后/加餐省事",
+   "营养师观点:优先天然食物,粉只是“补充”"
+  ],
+  "recipe": {
+   "name": "怎么冲",
+   "time": "1分钟",
+   "steps": [
+    "冷水或牛奶摇匀",
+    "练后30分钟内可喝",
+    "别用滚水(结块且浪费蛋白)"
+   ]
+  },
+  "tips": "不是必须品;乳糖不耐选分离乳清或植物蛋白;参赛运动员务必选第三方检测(如Informed Sport/NSF)产品以防污染。",
+  "pair": [
+   {
+    "name": "天然食物",
+    "why": "补剂只是补充,营养优先从天然食物满足"
+   }
+  ]
+ },
+ {
+  "id": "plant-protein",
+  "name": "植物蛋白粉",
+  "alias": "豌豆蛋白 · 大豆蛋白粉",
+  "emoji": "🌱",
+  "cat": "sport",
+  "basis": "每100g粉(市售参考)",
+  "goals": [
+   "gain",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": true,
+  "kcal": 380,
+  "p": 70,
+  "c": 10,
+  "f": 5,
+  "fiber": 0,
+  "na": 400,
+  "k": 300,
+  "ca": 200,
+  "mg": 60,
+  "fe": 5,
+  "zn": 2,
+  "vc": 0,
+  "serving": {
+   "n": 30,
+   "unit": "克",
+   "note": "约1勺,蛋白约21g"
+  },
+  "scenes": [
+   "post",
+   "rec"
+  ],
+  "highlight": [
+   "素食/乳糖不耐者的蛋白补充",
+   "常添加消化酶,口感看品牌"
+  ],
+  "tips": "优先看蛋白质含量与配料,别被“增肌”营销带偏;蛋白需求仍先靠豆制品+全食物。",
+  "pair": [
+   {
+    "name": "天然食物",
+    "why": "补剂只是补充,营养优先从天然食物满足"
+   }
+  ]
+ },
+ {
+  "id": "casein",
+  "name": "酪蛋白粉",
+  "alias": "酪蛋白 · 慢速蛋白",
+  "emoji": "🥛",
+  "cat": "sport",
+  "basis": "每100g粉(市售参考)",
+  "goals": [
+   "gain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": true,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 380,
+  "p": 75,
+  "c": 8,
+  "f": 5,
+  "fiber": 0,
+  "na": 300,
+  "k": 400,
+  "ca": 600,
+  "mg": 60,
+  "fe": 0.5,
+  "zn": 1,
+  "vc": 0,
+  "serving": {
+   "n": 30,
+   "unit": "克",
+   "note": "约1勺"
+  },
+  "scenes": [
+   "rec"
+  ],
+  "highlight": [
+   "吸收慢,适合睡前/长时间空腹场景",
+   "与乳清互补,但非必需"
+  ],
+  "tips": "多数人用乳清+睡前吃酸奶/奶酪就能覆盖,不必多买一瓶;注意产品纯度。",
+  "pair": [
+   {
+    "name": "天然食物",
+    "why": "补剂只是补充,营养优先从天然食物满足"
+   }
+  ]
+ },
+ {
+  "id": "creatine",
+  "name": "肌酸(一水肌酸)",
+  "alias": "肌酸 · 一水肌酸",
+  "emoji": "💊",
+  "cat": "sport",
+  "basis": "每100g粉",
+  "goals": [
+   "gain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 0,
+  "p": 0,
+  "c": 0,
+  "f": 0,
+  "fiber": 0,
+  "na": 0,
+  "k": 0,
+  "ca": 0,
+  "mg": 0,
+  "fe": 0,
+  "zn": 0,
+  "vc": 0,
+  "serving": {
+   "n": 3,
+   "unit": "克",
+   "note": "每日3~5g"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "运动补剂中证据最扎实的一种(力量/爆发)",
+   "一水肌酸性价比最高,别买花哨“复合款”"
+  ],
+  "tips": "不需“冲击期”,每天3~5g长期吃即可;部分人轻微储水;肾病患者遵医嘱;选有第三方检测的品牌。",
+  "pair": [
+   {
+    "name": "天然食物",
+    "why": "补剂只是补充,营养优先从天然食物满足"
+   }
+  ]
+ },
+ {
+  "id": "beta-alanine",
+  "name": "β-丙氨酸",
+  "alias": "β-丙氨酸",
+  "emoji": "💊",
+  "cat": "sport",
+  "basis": "每100g粉",
+  "goals": [
+   "gain",
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 0,
+  "p": 0,
+  "c": 0,
+  "f": 0,
+  "fiber": 0,
+  "na": 0,
+  "k": 0,
+  "ca": 0,
+  "mg": 0,
+  "fe": 0,
+  "zn": 0,
+  "vc": 0,
+  "serving": {
+   "n": 3,
+   "unit": "克",
+   "note": "分次服用"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "帮助缓冲肌肉酸感,提升1~4分钟高强度表现",
+   "证据中等,不是人人有效"
+  ],
+  "tips": "常见副作用是皮肤发麻刺痛(无害但明显),可分小剂量吃;非必需,先练好基本功。",
+  "pair": [
+   {
+    "name": "天然食物",
+    "why": "补剂只是补充,营养优先从天然食物满足"
+   }
+  ]
+ },
+ {
+  "id": "caffeine",
+  "name": "咖啡因(补剂型)",
+  "alias": "咖啡因片 · 无水咖啡因",
+  "emoji": "☕",
+  "cat": "sport",
+  "basis": "每粒(约100~200mg)",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 0,
+  "p": 0,
+  "c": 0,
+  "f": 0,
+  "fiber": 0,
+  "na": 0,
+  "k": 0,
+  "ca": 0,
+  "mg": 0,
+  "fe": 0,
+  "zn": 0,
+  "vc": 0,
+  "serving": {
+   "n": 1,
+   "unit": "粒",
+   "note": "约100~200mg咖啡因"
+  },
+  "scenes": [
+   "pre",
+   "comp"
+  ],
+  "highlight": [
+   "循证提升耐力与警觉的补剂",
+   "一杯黑咖啡同样是来源,不必上“片剂”"
+  ],
+  "tips": "按3~6mg/kg体重算单次;敏感者/高血压者谨慎;注意赛事对咖啡因的规则;下午后避免。",
+  "pair": [
+   {
+    "name": "天然食物",
+    "why": "补剂只是补充,营养优先从天然食物满足"
+   }
+  ]
+ },
+ {
+  "id": "electrolyte",
+  "name": "电解质冲剂",
+  "alias": "电解质粉 · 冲剂",
+  "emoji": "💧",
+  "cat": "sport",
+  "basis": "每份(约5g粉,按包装冲)",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 0,
+  "p": 0,
+  "c": 0,
+  "f": 0,
+  "fiber": 0,
+  "na": 0,
+  "k": 0,
+  "ca": 0,
+  "mg": 0,
+  "fe": 0,
+  "zn": 0,
+  "vc": 0,
+  "serving": {
+   "n": 1,
+   "unit": "条",
+   "note": "按包装兑水500ml"
+  },
+  "scenes": [
+   "comp",
+   "rec"
+  ],
+  "highlight": [
+   "高温/长时间大量出汗时快速补钠钾",
+   "短训或日常饮食正常时用不上"
+  ],
+  "tips": "不同品牌钠含量差异大,看包装;别过量,肾病/高血压遵医嘱;平时靠饭菜里的盐就能补钠。",
+  "pair": [
+   {
+    "name": "天然食物",
+    "why": "补剂只是补充,营养优先从天然食物满足"
+   }
+  ]
+ },
+ {
+  "id": "energy-gel",
+  "name": "能量胶",
+  "alias": "能量胶 · 运动凝胶",
+  "emoji": "🧃",
+  "cat": "sport",
+  "basis": "每100g(常见1条约40g)",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": true,
+  "snack": false,
+  "kcal": 240,
+  "p": 0,
+  "c": 60,
+  "f": 0,
+  "fiber": 0,
+  "na": 150,
+  "k": 10,
+  "ca": 0,
+  "mg": 0,
+  "fe": 0,
+  "zn": 0,
+  "vc": 0,
+  "serving": {
+   "n": 1,
+   "unit": "条",
+   "note": "约40g,约含25g碳水"
+  },
+  "scenes": [
+   "comp"
+  ],
+  "highlight": [
+   "比赛/长距离中快速补糖",
+   "平时训练用不上,别当零食"
+  ],
+  "tips": "超过60~75分钟的高强度耐力运动才按需;先少量试肠胃耐受,比赛别试新。",
+  "pair": [
+   {
+    "name": "天然食物",
+    "why": "补剂只是补充,营养优先从天然食物满足"
+   }
+  ]
+ },
+ {
+  "id": "energy-bar",
+  "name": "能量棒/蛋白棒",
+  "alias": "蛋白棒 · 能量棒",
+  "emoji": "🍫",
+  "cat": "sport",
+  "basis": "每100g(市售参考,1条约50~60g)",
+  "goals": [
+   "maintain",
+   "gain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": true,
+   "nut": false
+  },
+  "quick": true,
+  "snack": true,
+  "kcal": 380,
+  "p": 25,
+  "c": 42,
+  "f": 12,
+  "fiber": 5,
+  "na": 250,
+  "k": 200,
+  "ca": 120,
+  "mg": 50,
+  "fe": 1.5,
+  "zn": 1.5,
+  "vc": 0,
+  "serving": {
+   "n": 1,
+   "unit": "根",
+   "note": "约60g"
+  },
+  "scenes": [
+   "rec",
+   "comp"
+  ],
+  "highlight": [
+   "便携的碳水+蛋白,旅途/比赛方便",
+   "很多“蛋白棒”糖分接近糖果,要学会看配料"
+  ],
+  "tips": "看营养表选蛋白>15g、糖<10g/根的更靠谱;日常还是优先天然食物。",
+  "pair": [
+   {
+    "name": "天然食物",
+    "why": "补剂只是补充,营养优先从天然食物满足"
+   }
+  ]
+ },
+ {
+  "id": "fish-oil",
+  "name": "鱼油(Omega-3)",
+  "alias": "鱼油 · EPA/DHA",
+  "emoji": "💊",
+  "cat": "sport",
+  "basis": "每粒(约1000mg鱼油)",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 9,
+  "p": 0,
+  "c": 0,
+  "f": 1,
+  "fiber": 0,
+  "na": 0,
+  "k": 0,
+  "ca": 0,
+  "mg": 0,
+  "fe": 0,
+  "zn": 0,
+  "vc": 0,
+  "serving": {
+   "n": 1,
+   "unit": "粒",
+   "note": "约1000mg"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "EPA/DHA对心血管/关节/脑可能有益,证据有限",
+   "食补优先:每周2~3次三文鱼等肥鱼"
+  ],
+  "tips": "看标签EPA+DHA总量(非“鱼油含量”);避免氧化腥味;服用抗凝药者遵医嘱。",
+  "pair": [
+   {
+    "name": "天然食物",
+    "why": "补剂只是补充,营养优先从天然食物满足"
+   }
+  ]
+ },
+ {
+  "id": "vitamin-d3",
+  "name": "维生素D3",
+  "alias": "维D3 · 胆钙化醇",
+  "emoji": "💊",
+  "cat": "sport",
+  "basis": "每粒(常见400~1000IU)",
+  "goals": [
+   "maintain"
+  ],
+  "tags": {
+   "meat": false,
+   "seafood": false,
+   "egg": false,
+   "dairy": false,
+   "nut": false
+  },
+  "quick": false,
+  "snack": false,
+  "kcal": 0,
+  "p": 0,
+  "c": 0,
+  "f": 0,
+  "fiber": 0,
+  "na": 0,
+  "k": 0,
+  "ca": 0,
+  "mg": 0,
+  "fe": 0,
+  "zn": 0,
+  "vc": 0,
+  "serving": {
+   "n": 1,
+   "unit": "粒",
+   "note": "常见400~1000IU"
+  },
+  "scenes": [
+   "daily"
+  ],
+  "highlight": [
+   "日照不足/室内训练人群易缺D,影响骨与免疫",
+   "想补先查血(25-OH-D),别盲目大剂量"
+  ],
+  "tips": "脂溶性维生素过量有风险,请遵医嘱剂量;鱼肝油≠维D,别混着乱吃。",
+  "pair": [
+   {
+    "name": "天然食物",
+    "why": "补剂只是补充,营养优先从天然食物满足"
+   }
+  ]
+ }
+];
+
+const FOODS = FOODS_PROTEIN.concat(FOODS_STAPLE, FOODS_VEG, FOODS_FRUIT, FOODS_FAT, FOODS_DRINK, FOODS_SPORT);
