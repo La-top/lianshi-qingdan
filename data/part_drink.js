@@ -61,7 +61,8 @@ const FOODS_DRINK = [
     "下午后避免影响睡眠"
    ]
   },
-  "tips": "咖啡因会随咖啡豆/浓度差异很大,注意总量;睡前6~8小时尽量不喝。"
+  "tips": "咖啡因会随咖啡豆/浓度差异很大,注意总量;睡前6~8小时尽量不喝。",
+  "pic": "assets/img/food/black-coffee.png"
  },
  {
   "id": "green-tea",
@@ -270,7 +271,8 @@ const FOODS_DRINK = [
     "name": "白开水",
     "why": "饮品是补水的补充,日常基础还是白开水"
    }
-  ]
+  ],
+  "pic": "assets/img/food/orange-juice.png"
  },
  {
   "id": "cola",
@@ -371,7 +373,8 @@ const FOODS_DRINK = [
     "name": "白开水",
     "why": "饮品是补水的补充,日常基础还是白开水"
    }
-  ]
+  ],
+  "pic": "assets/img/food/lowfat-milk.png"
  },
  {
   "id": "sparkling-water",

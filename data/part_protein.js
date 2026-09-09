@@ -1209,7 +1209,8 @@ const FOODS_PROTEIN = [
     "why": "蛋黄营养也别丢,蛋清+适量蛋黄更均衡"
    }
   ],
-  "tips": "一个全蛋蛋白约6g、蛋清约3.5g;别只吃蛋清,蛋黄含卵磷脂等营养。"
+  "tips": "一个全蛋蛋白约6g、蛋清约3.5g;别只吃蛋清,蛋黄含卵磷脂等营养。",
+  "pic": "assets/img/food/egg-white.png"
  },
  {
   "id": "quail-egg",
@@ -1323,7 +1324,8 @@ const FOODS_PROTEIN = [
     "可加虾皮/肉松提味"
    ]
   },
-  "tips": "蛋白质比北豆腐低,想多补蛋白优先选北豆腐或豆干。"
+  "tips": "蛋白质比北豆腐低,想多补蛋白优先选北豆腐或豆干。",
+  "pic": "assets/img/food/tofu-silken.png"
  },
  {
   "id": "tofu-dried",

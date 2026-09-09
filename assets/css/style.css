@@ -140,4 +140,4 @@ table.nut th{background:#f7faf7;font-weight:700}
 }
 
 /* 食物写实图 */
-.foodpic{display:inline-block;object-fit:contain;border-radius:10px;vertical-align:-0.12em;background:#fff}
+.foodpic{display:inline-block;object-fit:cover;border-radius:50%;vertical-align:-0.12em;background:#fff;border:2px solid #fff;box-shadow:0 1px 4px rgba(16,24,40,.14)}

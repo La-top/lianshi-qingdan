@@ -1209,7 +1209,8 @@ const FOODS_PROTEIN = [
     "why": "蛋黄营养也别丢,蛋清+适量蛋黄更均衡"
    }
   ],
-  "tips": "一个全蛋蛋白约6g、蛋清约3.5g;别只吃蛋清,蛋黄含卵磷脂等营养。"
+  "tips": "一个全蛋蛋白约6g、蛋清约3.5g;别只吃蛋清,蛋黄含卵磷脂等营养。",
+  "pic": "assets/img/food/egg-white.png"
  },
  {
   "id": "quail-egg",
@@ -1323,7 +1324,8 @@ const FOODS_PROTEIN = [
     "可加虾皮/肉松提味"
    ]
   },
-  "tips": "蛋白质比北豆腐低,想多补蛋白优先选北豆腐或豆干。"
+  "tips": "蛋白质比北豆腐低,想多补蛋白优先选北豆腐或豆干。",
+  "pic": "assets/img/food/tofu-silken.png"
  },
  {
   "id": "tofu-dried",
@@ -2710,7 +2712,8 @@ const FOODS_STAPLE = [
     "煮熟焖软"
    ]
   },
-  "tips": "纯荞麦口感松散,可先和白米混合过渡。"
+  "tips": "纯荞麦口感松散,可先和白米混合过渡。",
+  "pic": "assets/img/food/buckwheat.png"
  },
  {
   "id": "coix",
@@ -3248,7 +3251,8 @@ const FOODS_STAPLE = [
     "why": "当主食加餐配牛奶,热量可控"
    }
   ],
-  "tips": "栗子是主食不是坚果,7~8颗约等于半碗饭,别当瓜子吃。"
+  "tips": "栗子是主食不是坚果,7~8颗约等于半碗饭,别当瓜子吃。",
+  "pic": "assets/img/food/chestnut.png"
  }
 ];
 
@@ -6413,7 +6417,8 @@ const FOODS_DRINK = [
     "下午后避免影响睡眠"
    ]
   },
-  "tips": "咖啡因会随咖啡豆/浓度差异很大,注意总量;睡前6~8小时尽量不喝。"
+  "tips": "咖啡因会随咖啡豆/浓度差异很大,注意总量;睡前6~8小时尽量不喝。",
+  "pic": "assets/img/food/black-coffee.png"
  },
  {
   "id": "green-tea",
@@ -6622,7 +6627,8 @@ const FOODS_DRINK = [
     "name": "白开水",
     "why": "饮品是补水的补充,日常基础还是白开水"
    }
-  ]
+  ],
+  "pic": "assets/img/food/orange-juice.png"
  },
  {
   "id": "cola",
@@ -6723,7 +6729,8 @@ const FOODS_DRINK = [
     "name": "白开水",
     "why": "饮品是补水的补充,日常基础还是白开水"
    }
-  ]
+  ],
+  "pic": "assets/img/food/lowfat-milk.png"
  },
  {
   "id": "sparkling-water",

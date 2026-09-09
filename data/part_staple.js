@@ -1017,7 +1017,8 @@ const FOODS_STAPLE = [
     "煮熟焖软"
    ]
   },
-  "tips": "纯荞麦口感松散,可先和白米混合过渡。"
+  "tips": "纯荞麦口感松散,可先和白米混合过渡。",
+  "pic": "assets/img/food/buckwheat.png"
  },
  {
   "id": "coix",
@@ -1555,6 +1556,7 @@ const FOODS_STAPLE = [
     "why": "当主食加餐配牛奶,热量可控"
    }
   ],
-  "tips": "栗子是主食不是坚果,7~8颗约等于半碗饭,别当瓜子吃。"
+  "tips": "栗子是主食不是坚果,7~8颗约等于半碗饭,别当瓜子吃。",
+  "pic": "assets/img/food/chestnut.png"
  }
 ];
