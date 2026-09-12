@@ -121,6 +121,114 @@ function diversityCheck(plan) {
   return { count: count, items: sets, issues: issues, passed: issues.length === 0 };
 }
 
+/* ---------- 用户自定义目标与达标度 ---------- */
+function normTargets(t) {
+  if (!t) return null;
+  const n = function (x) { const v = Number(x); return isFinite(v) ? v : NaN; };
+  const out = { kcal: n(t.kcal), p: n(t.p), c: n(t.c), f: n(t.f), fiber: n(t.fiber) || 0, water: n(t.water) || 0 };
+  if (!(out.kcal >= 800 && out.kcal <= 6000)) return null;
+  if (!(out.p >= 0 && out.p <= 400)) return null;
+  if (!(out.c >= 0 && out.c <= 800)) return null;
+  if (!(out.f >= 0 && out.f <= 300)) return null;
+  if (!(out.fiber >= 0 && out.fiber <= 150)) return null;
+  if (!(out.water >= 0 && out.water <= 10000)) return null;
+  return out;
+}
+function planDayTotals(day) {
+  const t = { kcal: 0, p: 0, c: 0, f: 0, fiber: 0 };
+  ((day && day.meals) || []).forEach(function (m) {
+    (m.items || []).forEach(function (it) {
+      const f = foodById(it.foodId);
+      if (!f) return;
+      const k = (Number(it.grams) || 0) / 100;
+      t.kcal += f.kcal * k; t.p += f.p * k; t.c += f.c * k; t.f += f.f * k; t.fiber += (f.fiber || 0) * k;
+    });
+  });
+  t.kcal = Math.round(t.kcal);
+  ['p', 'c', 'f', 'fiber'].forEach(function (k) { t[k] = Math.round(t[k] * 10) / 10; });
+  return t;
+}
+function pctOf(actual, target) { return target ? Math.round((actual - target) / target * 1000) / 10 : 0; }
+function adherenceCheck(plan, targets) {
+  const rows = [];
+  const issues = [];
+  [['训练日', plan.trainingDay], ['休息日', plan.restDay]].forEach(function (pair) {
+    const label = pair[0], day = pair[1] || {};
+    const actual = planDayTotals(day);
+    const d = {
+      kcal: pctOf(actual.kcal, targets.kcal),
+      p: pctOf(actual.p, targets.p),
+      c: pctOf(actual.c, targets.c),
+      f: pctOf(actual.f, targets.f),
+      fiber: pctOf(actual.fiber, targets.fiber)
+    };
+    const ok = Math.abs(d.kcal) <= 10 && Math.abs(d.p) <= 10 && Math.abs(d.c) <= 15 && Math.abs(d.f) <= 15;
+    rows.push({ day: label, actual: actual, deltas: d, passed: ok });
+    if (!ok) {
+      const parts = [];
+      if (Math.abs(d.kcal) > 10) parts.push('热量' + (d.kcal > 0 ? '超' : '差') + Math.abs(d.kcal) + '%');
+      if (Math.abs(d.p) > 10) parts.push('蛋白' + (d.p > 0 ? '超' : '差') + Math.abs(d.p) + '%');
+      if (Math.abs(d.c) > 15) parts.push('碳水' + (d.c > 0 ? '超' : '差') + Math.abs(d.c) + '%');
+      if (Math.abs(d.f) > 15) parts.push('脂肪' + (d.f > 0 ? '超' : '差') + Math.abs(d.f) + '%');
+      issues.push(label + '偏差:' + parts.join('、'));
+    }
+  });
+  return { targets: targets, rows: rows, issues: issues, passed: issues.length === 0 };
+}
+function scaleMockPlan(plan, targets) {
+  const clone = JSON.parse(JSON.stringify(plan));
+  clone.targets = targets;
+  function itemsOf(day) {
+    const out = [];
+    (day.meals || []).forEach(function (m) { (m.items || []).forEach(function (it) { const f = foodById(it.foodId); if (f) out.push({ it: it, f: f }); }); });
+    return out;
+  }
+  function sum(list, key) { return list.reduce(function (s, o) { return s + o.f[key] * (Number(o.it.grams) || 0) / 100; }, 0); }
+  function setG(o, g) { o.it.grams = Math.max(5, Math.round(g / 5) * 5); }
+  function scaleTo(list, key, want) {
+    const cur = sum(list, key);
+    if (!list.length || cur <= 0 || want <= 0) return;
+    const f = Math.min(4, Math.max(0.2, want / cur));
+    list.forEach(function (o) { setG(o, (Number(o.it.grams) || 0) * f); });
+  }
+  ['trainingDay', 'restDay'].forEach(function (dk) {
+    const day = clone[dk];
+    const all = itemsOf(day);
+    if (!all.length) return;
+    const proteins = all.filter(function (o) { return o.f.cat === 'protein'; });
+    const staples = all.filter(function (o) { return o.f.cat === 'staple'; });
+    const fats = all.filter(function (o) { return o.f.cat === 'fat'; });
+    const others = all.filter(function (o) { return o.f.cat !== 'protein' && o.f.cat !== 'staple' && o.f.cat !== 'fat'; });
+    /* 1) 蛋白类补足剩余蛋白(扣掉主食/蔬菜/水果/脂肪自带的蛋白) */
+    const pOther = sum(all.filter(function (o) { return proteins.indexOf(o) < 0; }), 'p');
+    scaleTo(proteins, 'p', Math.max(0, (targets.p || 0) - pOther));
+    /* 2) 主食补足剩余碳水 */
+    const carbOther = sum(all.filter(function (o) { return staples.indexOf(o) < 0; }), 'c');
+    scaleTo(staples, 'c', Math.max(0, (targets.c || 0) - carbOther));
+    /* 3) 脂肪类补足剩余脂肪 */
+    const fatOther = sum(all.filter(function (o) { return fats.indexOf(o) < 0; }), 'f');
+    const needF = (targets.f || 0) - fatOther;
+    if (fats.length) {
+      if (needF > 0) scaleTo(fats, 'f', needF);
+      else fats.forEach(function (o) { setG(o, 5); });
+    }
+    /* 4) 热量微调:优先动蔬菜水果 */
+    const kcalBase = sum(all, 'kcal');
+    const kcalOthers = sum(others, 'kcal');
+    if (others.length && kcalOthers > 0) {
+      const want = Math.max(kcalOthers * 0.2, (targets.kcal || kcalBase) - (kcalBase - kcalOthers));
+      scaleTo(others, 'kcal', want);
+    }
+    /* 5) 最后整体小幅微调 */
+    const kcalAfter = sum(all, 'kcal');
+    if (kcalAfter > 0) {
+      const f = Math.min(1.08, Math.max(0.92, (targets.kcal || kcalAfter) / kcalAfter));
+      all.forEach(function (o) { setG(o, (Number(o.it.grams) || 0) * f); });
+    }
+  });
+  return clone;
+}
+
 /* ---------- 用量日志 ---------- */
 function logUsage(row) {
   try { fs.appendFileSync(LOG_FILE, JSON.stringify(row) + '\n', 'utf8'); } catch (e) {}
@@ -273,7 +381,11 @@ const server = http.createServer(async function (req, res) {
 
     if (url === '/api/plan' && req.method === 'POST') {
       const body = await readBody(req);
-      if (MOCK) return sendJSON(res, 200, { ok: true, mock: true, plan: MOCK_PLAN, diversity: diversityCheck(MOCK_PLAN) });
+      const manual = normTargets(body.targets);
+      if (MOCK) {
+        const plan = manual ? scaleMockPlan(MOCK_PLAN, manual) : MOCK_PLAN;
+        return sendJSON(res, 200, { ok: true, mock: true, plan: plan, diversity: diversityCheck(plan), adherence: manual ? adherenceCheck(plan, manual) : null });
+      }
       const schema = [
         '请只输出 JSON,不要多余文字,字段如下:',
         '{"summary":"一句话概述",',
@@ -289,7 +401,10 @@ const server = http.createServer(async function (req, res) {
         '\n\n[用户档案]\n' + profileText(body.profile) +
         '\n\n[食物库(格式: id|名称|类别|热量|蛋白|碳水|脂肪|纤维|每份量|场景)]\n' + FOOD_INDEX +
         '\n\n' + schema;
-      const out = await deepseekJSON([{ role: 'system', content: sys }, { role: 'user', content: '请根据我的档案生成长期饮食计划(训练日/休息日两套模板)。' }]);
+      const goalLine = manual
+        ? ('\n\n[用户已给出的每日目标,必须严格遵守,不得自行修改]\n热量 ' + manual.kcal + ' 千卡;蛋白质 ' + manual.p + 'g;碳水 ' + manual.c + 'g;脂肪 ' + manual.f + 'g' + (manual.fiber ? (';膳食纤维 ' + manual.fiber + 'g') : '') + (manual.water ? (';饮水 ' + manual.water + 'ml') : '') + '\n两套模板(训练日/休息日)都必须在这组目标上达标:热量与蛋白误差 ≤10%,碳水与脂肪误差 ≤15%;targets 字段原样返回这组数字。')
+        : '';
+      const out = await deepseekJSON([{ role: 'system', content: sys + goalLine }, { role: 'user', content: '请根据我的档案生成长期饮食计划(训练日/休息日两套模板)。' }]);
       let plan = null;
       try {
         plan = JSON.parse(out.text);
@@ -299,19 +414,23 @@ const server = http.createServer(async function (req, res) {
       if (!plan || !plan.targets || !plan.trainingDay || !plan.restDay) {
         return sendJSON(res, 502, { ok: false, error: '计划结构不完整,请重试' });
       }
+      if (manual) plan.targets = manual;
       let diversity = diversityCheck(plan);
-      if (!diversity.passed) {
+      let adherence = manual ? adherenceCheck(plan, manual) : null;
+      if (!diversity.passed || (adherence && !adherence.passed)) {
         try {
           const retry = await deepseekJSON([
             { role: 'system', content: sys },
             { role: 'user', content: '请根据我的档案生成长期饮食计划(训练日/休息日两套模板)。' },
             { role: 'assistant', content: out.text },
-            { role: 'user', content: '多样性检查未通过:' + diversity.issues.join(';') + '。请在保持营养目标不变的前提下调整食物种类与轮换,并重新输出完整 JSON(包含 rotation 字段,给出每类食物的轮换选项)。' }
+            { role: 'user', content: [diversity.passed ? '' : ('多样性检查未通过:' + diversity.issues.join(';')), (adherence && !adherence.passed) ? ('营养目标偏差:' + adherence.issues.join(';')) : ''].filter(Boolean).join(' ') + ' 请在保持目标不变的前提下调整食物与克数,并重新输出完整 JSON(包含 rotation 字段)。' }
           ]);
           const plan2 = JSON.parse(retry.text);
           if (plan2 && plan2.targets && plan2.trainingDay && plan2.restDay) {
             plan = plan2; out.text = retry.text;
+            if (manual) plan.targets = manual;
             diversity = diversityCheck(plan);
+            adherence = manual ? adherenceCheck(plan, manual) : null;
           }
         } catch (e) { /* 重试失败则保留原计划,并把问题返回给前端 */ }
       }
@@ -319,7 +438,7 @@ const server = http.createServer(async function (req, res) {
       const pout = out.usage.completion_tokens || estimateTokens(out.text);
       const cost = costOf(pin, pout);
       logUsage({ at: new Date().toISOString(), api: 'plan', prompt_tokens: pin, completion_tokens: pout, costCNY: cost });
-      return sendJSON(res, 200, { ok: true, plan: plan, diversity: diversity, costCNY: cost, usage: { prompt_tokens: pin, completion_tokens: pout } });
+      return sendJSON(res, 200, { ok: true, plan: plan, diversity: diversity, adherence: adherence, costCNY: cost, usage: { prompt_tokens: pin, completion_tokens: pout } });
     }
 
     if (url.startsWith('/api/')) return sendJSON(res, 404, { ok: false, error: 'unknown api' });

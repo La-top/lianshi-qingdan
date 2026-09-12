@@ -4,6 +4,9 @@ var coach = {
   profile: storeGet('coachProfile', null),
   plan: storeGet('coachPlan', null),
   chat: storeGet('coachChat', []),
+  targetMode: storeGet('coachTargetMode', 'auto'),
+  manualTargets: storeGet('coachTargets', null),
+  adherence: storeGet('coachAdherence', null),
   busy: false
 };
 
@@ -178,6 +181,7 @@ function renderPlan() {
   html += "<div class='nut-box'><div class='n-v'>" + (T.water || '-') + "</div><div class='n-l'>水(ml)</div></div>";
   html += "</div>";
   html += diversityHTML(p);
+  html += adherenceHTML();
   html += mealsHTML(p.trainingDay, 'trainingDay', '🏋️ 训练日');
   html += mealsHTML(p.restDay, 'restDay', '🛌 休息日');
   if (p.swaps && p.swaps.length) {
@@ -289,18 +293,96 @@ function sendChat() {
   });
 }
 
+/* ---------- 目标来源(自动/自己填) ---------- */
+function setTargetMode(mode) {
+  coach.targetMode = mode;
+  storeSet('coachTargetMode', mode);
+  $('#manualBox').style.display = (mode === 'manual') ? 'block' : 'none';
+  $('#modeAuto').className = 'btn btn-sm ' + (mode === 'manual' ? 'btn-ghost' : 'btn-soft');
+  $('#modeManual').className = 'btn btn-sm ' + (mode === 'manual' ? 'btn-soft' : 'btn-ghost');
+  $('#planDesc').textContent = (mode === 'manual')
+    ? '按你填写的每日目标生成:训练日/休息日两套菜单都要卡在同一组目标上。'
+    : '由 AI 根据档案估算每日营养目标,再生成训练日 / 休息日两套模板。';
+}
+function fillManual() {
+  var t = coach.manualTargets; if (!t) return;
+  if (t.kcal) $('#tg-kcal').value = t.kcal;
+  if (t.p) $('#tg-p').value = t.p;
+  if (t.c) $('#tg-c').value = t.c;
+  if (t.f) $('#tg-f').value = t.f;
+  if (t.fiber) $('#tg-fiber').value = t.fiber;
+  if (t.water) $('#tg-water').value = t.water;
+}
+function readManual() {
+  return {
+    kcal: Number($('#tg-kcal').value) || 0,
+    p: Number($('#tg-p').value) || 0,
+    c: Number($('#tg-c').value) || 0,
+    f: Number($('#tg-f').value) || 0,
+    fiber: Number($('#tg-fiber').value) || 0,
+    water: Number($('#tg-water').value) || 0
+  };
+}
+function parsePaste() {
+  var s = $('#tg-paste').value.replace(/\s+/g, ' ').trim();
+  if (!s) { toast('先粘贴一段目标文字'); return; }
+  function pick(re) { var m = s.match(re); return m ? Number(m[1]) : null; }
+  var kcal = pick(/(?:热量|能量|卡路里|千卡|kcal)\D{0,8}(\d+(?:\.\d+)?)/i);
+  var p = pick(/(?:蛋白质|蛋白|protein)\D{0,8}(\d+(?:\.\d+)?)/i);
+  var c = pick(/(?:碳水化合物|碳水|carbs?)\D{0,8}(\d+(?:\.\d+)?)/i);
+  var f = pick(/(?:脂肪|fat)\D{0,8}(\d+(?:\.\d+)?)/i);
+  var fiber = pick(/(?:膳食纤维|纤维|fiber)\D{0,8}(\d+(?:\.\d+)?)/i);
+  var water = pick(/(?:饮水|饮水量|water)\D{0,8}(\d+(?:\.\d+)?)/i);
+  if (kcal) $('#tg-kcal').value = kcal;
+  if (p) $('#tg-p').value = p;
+  if (c) $('#tg-c').value = c;
+  if (f) $('#tg-f').value = f;
+  if (fiber) $('#tg-fiber').value = fiber;
+  if (water) $('#tg-water').value = water;
+  toast(kcal || p || c || f ? '已解析填入,请核对后再生成' : '没识别到数字,试着写成:热量2200 蛋白150 碳水250 脂肪60');
+}
+function adherenceHTML() {
+  var a = coach.adherence; if (!a || !a.rows) return '';
+  var html = "<div class='card' style='margin-top:12px;background:#fbfdfb'><div class='row' style='justify-content:space-between;flex-wrap:wrap;gap:8px'><b>🎯 达标度(对照你填的目标)</b>" + (a.passed ? "<span class='tag green'>两套都达标</span>" : "<span class='tag orange'>有偏差</span>") + "</div>";
+  a.rows.forEach(function (r) {
+    html += "<div style='margin-top:8px'><b>" + esc(r.day) + "</b> <span class='small muted'>实际 " + r.actual.kcal + " 千卡 · 蛋白 " + r.actual.p + "g · 碳水 " + r.actual.c + "g · 脂肪 " + r.actual.f + "g</span><div class='row' style='gap:6px;margin-top:4px'>";
+    [['kcal', '热量', 10], ['p', '蛋白', 10], ['c', '碳水', 15], ['f', '脂肪', 15], ['fiber', '纤维', 30]].forEach(function (x) {
+      var d = r.deltas[x[0]];
+      if (d === undefined) return;
+      var ok = Math.abs(d) <= x[2];
+      html += "<span class='tag " + (ok ? 'green' : 'orange') + "'>" + x[1] + " " + (d > 0 ? '+' : '') + d + "%</span>";
+    });
+    html += "</div></div>";
+  });
+  if (!a.passed) {
+    html += "<div class='tipbox' style='margin-top:8px'><b>偏差说明</b><ul class='list-plain'>" + a.issues.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + "</ul><div class='small'>可以直接在对话里说「把热量调准到 X / 蛋白再补 Yg」让它重算。</div></div>";
+  }
+  html += "</div>";
+  return html;
+}
+
 /* ---------- 生成计划 ---------- */
 function genPlan() {
   if (!coach.profile) { toast('请先保存档案'); return; }
   $('#planHint').textContent = '正在生成,请稍候…(约 10~40 秒)';
-  fetch('/api/plan', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ profile: coach.profile }) })
+  var reqBody = { profile: coach.profile };
+  if (coach.targetMode === 'manual') {
+    var mt = readManual();
+    if (!(mt.kcal >= 800 && mt.kcal <= 6000)) { toast('热量请填 800~6000 千卡'); return; }
+    if (!(mt.p >= 0 && mt.c >= 0 && mt.f >= 0)) { toast('蛋白/碳水/脂肪请填有效数字'); return; }
+    reqBody.targets = mt;
+    coach.manualTargets = mt; storeSet('coachTargets', mt);
+  }
+  fetch('/api/plan', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(reqBody) })
     .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
     .then(function (o) {
       if (!o.ok || !o.j.ok) { $('#planHint').textContent = ''; toast('生成失败:' + (o.j.error || '未知错误')); return; }
       coach.plan = o.j.plan;
+      coach.adherence = o.j.adherence || null;
       storeSet('coachPlan', coach.plan);
+      storeSet('coachAdherence', coach.adherence);
       renderPlan();
-      $('#planHint').innerHTML = o.j.mock ? "<span class='tag orange'>演示计划(未接模型)</span>" : "<span class='tag green'>已生成</span>" + (o.j.costCNY ? " · 本次约 ¥" + o.j.costCNY : "");
+      $('#planHint').innerHTML = o.j.mock ? ("<span class='tag orange'>演示计划(未接模型)</span><span class='small muted' style='margin-left:6px'>达标度为按目标缩放的示意,接入 DeepSeek 后会真正优化到达标</span>") : ("<span class='tag green'>已生成</span>" + (o.j.costCNY ? " · 本次约 ¥" + o.j.costCNY : ""));
     })
     .catch(function (e) { $('#planHint').textContent = ''; toast('请求失败:' + String(e.message || e)); });
 }
@@ -308,6 +390,9 @@ function genPlan() {
 /* ---------- 事件绑定 ---------- */
 $('#saveProfile').onclick = saveProfile;
 $('#genPlanBtn').onclick = genPlan;
+$('#modeAuto').onclick = function () { setTargetMode('auto'); };
+$('#modeManual').onclick = function () { setTargetMode('manual'); };
+$('#tg-parse').onclick = parsePaste;
 $('#sendBtn').onclick = sendChat;
 $('#chatInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') sendChat(); });
 $('#clearChat').onclick = function () { coach.chat = []; storeSet('coachChat', []); renderChat(); };
@@ -321,6 +406,8 @@ $('#planBox').addEventListener('click', function (e) {
 
 /* ---------- 初始化 ---------- */
 fillForm();
+setTargetMode(coach.targetMode || 'auto');
+fillManual();
 renderPlan();
 renderChat();
 renderMode();
