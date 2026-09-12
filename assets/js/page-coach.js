@@ -95,6 +95,57 @@ function dayTotals(day) {
   return t;
 }
 
+/* ---------- 饮食多样性 ---------- */
+var CAT_LABEL2 = { protein: '蛋白质来源', staple: '主食', veg: '蔬菜', fruit: '水果', fat: '优质脂肪' };
+function computeDiversity(plan) {
+  var sets = { protein: [], staple: [], veg: [], fruit: [], fat: [] };
+  var issues = [];
+  [['训练日', plan.trainingDay], ['休息日', plan.restDay]].forEach(function (pair) {
+    var day = pair[1] || {}; var dayCats = {};
+    ((day.meals) || []).forEach(function (m) {
+      (m.items || []).forEach(function (it) {
+        var f = foodById(it.foodId); if (!f) return;
+        if (sets[f.cat] && sets[f.cat].indexOf(f.id) < 0) sets[f.cat].push(f.id);
+        dayCats[f.cat] = true;
+      });
+    });
+    ['protein', 'staple', 'veg'].forEach(function (c) { if (!dayCats[c]) issues.push(pair[0] + '缺少' + CAT_LABEL2[c]); });
+  });
+  var count = {};
+  Object.keys(sets).forEach(function (k) { count[k] = sets[k].length; });
+  if (count.protein < 3) issues.push('蛋白质来源只有 ' + count.protein + ' 种,建议至少 3 种轮换');
+  if (count.staple < 3) issues.push('主食只有 ' + count.staple + ' 种,建议米面与薯类/杂粮轮换');
+  if (count.veg < 4) issues.push('蔬菜只有 ' + count.veg + ' 种,建议兼顾深色叶菜与瓜茄菌菇');
+  if (count.fruit < 1) issues.push('计划里没有水果');
+  if (count.fat < 1) issues.push('缺少明确的优质脂肪来源(坚果/种子/橄榄油/牛油果)');
+  return { count: count, items: sets, issues: issues, passed: issues.length === 0 };
+}
+function diversityHTML(plan) {
+  var d = computeDiversity(plan);
+  var html = "<div class='card' style='margin-top:12px;background:#fbfdfb'><div class='row' style='justify-content:space-between;flex-wrap:wrap;gap:8px'><b>🥗 饮食多样性</b>" +
+    (d.passed ? "<span class='tag green'>结构达标</span>" : "<span class='tag orange'>需要调整</span>") + "</div>";
+  html += "<div class='row' style='gap:6px;margin-top:8px'>";
+  Object.keys(CAT_LABEL2).forEach(function (k) {
+    var names = (d.items[k] || []).map(function (id) { var f = foodById(id); return f ? f.name : id; });
+    html += "<span class='tag'>" + CAT_LABEL2[k] + " " + d.count[k] + " 种" + (names.length ? ":" + names.join('/') : '') + "</span>";
+  });
+  html += "</div>";
+  if (!d.passed) {
+    html += "<div class='tipbox' style='margin-top:10px'><b>建议调整</b><ul class='list-plain'>";
+    d.issues.forEach(function (x) { html += "<li>" + esc(x) + "</li>"; });
+    html += "</ul><div class='small'>可以在下面直接说「帮我换掉重复的蛋白质/主食」,它会重新调整。</div></div>";
+  }
+  if (plan.rotation && plan.rotation.length) {
+    html += "<div style='margin-top:10px'><b>本轮换建议</b><ul class='list-plain'>";
+    plan.rotation.forEach(function (r) {
+      html += "<li>" + esc(r.slot || '') + ":" + esc((r.options || []).join(' / ')) + "</li>";
+    });
+    html += "</ul></div>";
+  }
+  html += "</div>";
+  return html;
+}
+
 /* ---------- 计划渲染 ---------- */
 function mealsHTML(day, dayKey, dayLabel) {
   var html = "<div class='meal-block' style='margin-top:10px'><div class='meal-head'><span>" + dayLabel + "</span><span class='m-kcal'>" + dayTotals(day).kcal + " 千卡 · 蛋白 " + dayTotals(day).p + "g</span></div><div class='meal-body'>";
@@ -126,6 +177,7 @@ function renderPlan() {
   html += "<div class='nut-box'><div class='n-v'>" + (T.fiber || '-') + "g</div><div class='n-l'>纤维</div></div>";
   html += "<div class='nut-box'><div class='n-v'>" + (T.water || '-') + "</div><div class='n-l'>水(ml)</div></div>";
   html += "</div>";
+  html += diversityHTML(p);
   html += mealsHTML(p.trainingDay, 'trainingDay', '🏋️ 训练日');
   html += mealsHTML(p.restDay, 'restDay', '🛌 休息日');
   if (p.swaps && p.swaps.length) {

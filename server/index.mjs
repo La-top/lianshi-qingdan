@@ -57,6 +57,7 @@ const RULES = [
   '遇到疾病、正在用药、孕产哺乳、进食障碍史、体重骤降、女性月经异常或疑似 RED-S:先建议就医或咨询注册营养师,只给一般性安全信息,不给具体热量与餐单。',
   '热量目标不得低于 1200 千卡/天;用户要求极端节食时拒绝并给出更安全的替代方案。',
   '给出的餐单必须使用食物库中的 foodId,克数按每100g营养计算;不确定的信息要明确说明。',
+  '饮食结构必须保持多样性:两天模板合计至少 3 种蛋白质来源、3 种主食、4 种蔬菜、1 种水果、1 种优质脂肪;不要把同一种食物同时放进两天的同一餐,给出轮换建议(rotation),避免连续几天吃同样搭配。',
   '输出用简体中文,结构清晰、可执行。'
 ].join('\n');
 
@@ -86,6 +87,38 @@ function guardOutput(text) {
     warn += '\n\n(安全提醒:涉及疾病或特殊生理状态,请先咨询医生或注册营养师。)';
   }
   return warn;
+}
+
+/* ---------- 饮食多样性检查 ---------- */
+const CAT_LABEL = { protein: '蛋白质来源', staple: '主食', veg: '蔬菜', fruit: '水果', fat: '优质脂肪' };
+function foodById(id) { for (const f of FOODS) { if (f.id === id) return f; } return null; }
+function diversityCheck(plan) {
+  const sets = { protein: [], staple: [], veg: [], fruit: [], fat: [] };
+  const issues = [];
+  const days = [['训练日', plan.trainingDay], ['休息日', plan.restDay]];
+  days.forEach(function (pair) {
+    const label = pair[0], day = pair[1] || {};
+    const dayCats = {};
+    (day.meals || []).forEach(function (m) {
+      (m.items || []).forEach(function (it) {
+        const f = foodById(it.foodId);
+        if (!f) return;
+        if (sets[f.cat] && sets[f.cat].indexOf(f.id) < 0) sets[f.cat].push(f.id);
+        dayCats[f.cat] = true;
+      });
+    });
+    ['protein', 'staple', 'veg'].forEach(function (c) {
+      if (!dayCats[c]) issues.push(label + '缺少' + CAT_LABEL[c]);
+    });
+  });
+  const count = {};
+  Object.keys(sets).forEach(function (k) { count[k] = sets[k].length; });
+  if (count.protein < 3) issues.push('蛋白质来源只有 ' + count.protein + ' 种(建议至少 3 种,如鸡胸/鱼虾/蛋奶/豆制品轮换)');
+  if (count.staple < 3) issues.push('主食只有 ' + count.staple + ' 种(建议至少 3 种,如米面与薯类/杂粮轮换)');
+  if (count.veg < 4) issues.push('蔬菜只有 ' + count.veg + ' 种(建议至少 4 种,兼顾深色叶菜与瓜茄菌菇)');
+  if (count.fruit < 1) issues.push('计划里没有水果');
+  if (count.fat < 1) issues.push('计划里没有明确的优质脂肪来源(坚果/种子/橄榄油/牛油果)');
+  return { count: count, items: sets, issues: issues, passed: issues.length === 0 };
 }
 
 /* ---------- 用量日志 ---------- */
@@ -150,7 +183,7 @@ const MOCK_PLAN = {
   trainingDay: {
     meals: [
       { name: '早餐', timing: '训练前2~3小时', items: [ { foodId: 'oats', name: '燕麦片', grams: 60 }, { foodId: 'milk', name: '牛奶(全脂)', grams: 250 }, { foodId: 'egg', name: '鸡蛋', grams: 100 }, { foodId: 'blueberry', name: '蓝莓', grams: 100 } ] },
-      { name: '午餐', timing: '训练后正餐', items: [ { foodId: 'chicken-breast', name: '鸡胸肉', grams: 200 }, { foodId: 'white-rice', name: '白米饭(熟)', grams: 250 }, { foodId: 'broccoli', name: '西兰花', grams: 200 } ] },
+      { name: '午餐', timing: '训练后正餐', items: [ { foodId: 'chicken-breast', name: '鸡胸肉', grams: 200 }, { foodId: 'white-rice', name: '白米饭(熟)', grams: 250 }, { foodId: 'broccoli', name: '西兰花', grams: 200 }, { foodId: 'olive-oil', name: '橄榄油', grams: 10 } ] },
       { name: '晚餐', timing: '睡前3小时', items: [ { foodId: 'salmon', name: '三文鱼', grams: 150 }, { foodId: 'sweet-potato', name: '红薯', grams: 200 }, { foodId: 'spinach', name: '菠菜', grams: 150 } ] },
       { name: '加餐', timing: '练后30分钟内', items: [ { foodId: 'banana', name: '香蕉', grams: 120 }, { foodId: 'yogurt', name: '希腊酸奶(无糖)', grams: 150 } ] }
     ]
@@ -240,7 +273,7 @@ const server = http.createServer(async function (req, res) {
 
     if (url === '/api/plan' && req.method === 'POST') {
       const body = await readBody(req);
-      if (MOCK) return sendJSON(res, 200, { ok: true, mock: true, plan: MOCK_PLAN });
+      if (MOCK) return sendJSON(res, 200, { ok: true, mock: true, plan: MOCK_PLAN, diversity: diversityCheck(MOCK_PLAN) });
       const schema = [
         '请只输出 JSON,不要多余文字,字段如下:',
         '{"summary":"一句话概述",',
@@ -248,7 +281,8 @@ const server = http.createServer(async function (req, res) {
         '"trainingDay":{"meals":[{"name":"早餐/午餐/晚餐/加餐","timing":"时机","items":[{"foodId":"来自食物库的id","name":"名称","grams":数字}]}]},',
         '"restDay":{"meals":[同上]},',
         '"swaps":[{"from":"食物","to":"替换方案","note":"说明"}],',
-        '"notes":["建议1"],"safetyWarnings":["如需就医提示"]}',
+        '"notes":["建议1"],"safetyWarnings":["如需就医提示"],',
+        '"rotation":[{"slot":"蛋白质来源","options":["鸡胸肉","鳕鱼","鸡蛋","豆腐"]}]}',
         '要求:训练日与休息日都必须包含早/午/晚,训练日可加一次加餐;克数合理;全天热量与 targets 误差不超过10%;蛋白质优先满足;foodId 必须来自给定食物库。'
       ].join('\n');
       const sys = RULES +
@@ -265,11 +299,27 @@ const server = http.createServer(async function (req, res) {
       if (!plan || !plan.targets || !plan.trainingDay || !plan.restDay) {
         return sendJSON(res, 502, { ok: false, error: '计划结构不完整,请重试' });
       }
+      let diversity = diversityCheck(plan);
+      if (!diversity.passed) {
+        try {
+          const retry = await deepseekJSON([
+            { role: 'system', content: sys },
+            { role: 'user', content: '请根据我的档案生成长期饮食计划(训练日/休息日两套模板)。' },
+            { role: 'assistant', content: out.text },
+            { role: 'user', content: '多样性检查未通过:' + diversity.issues.join(';') + '。请在保持营养目标不变的前提下调整食物种类与轮换,并重新输出完整 JSON(包含 rotation 字段,给出每类食物的轮换选项)。' }
+          ]);
+          const plan2 = JSON.parse(retry.text);
+          if (plan2 && plan2.targets && plan2.trainingDay && plan2.restDay) {
+            plan = plan2; out.text = retry.text;
+            diversity = diversityCheck(plan);
+          }
+        } catch (e) { /* 重试失败则保留原计划,并把问题返回给前端 */ }
+      }
       const pin = out.usage.prompt_tokens || estimateTokens(sys);
       const pout = out.usage.completion_tokens || estimateTokens(out.text);
       const cost = costOf(pin, pout);
       logUsage({ at: new Date().toISOString(), api: 'plan', prompt_tokens: pin, completion_tokens: pout, costCNY: cost });
-      return sendJSON(res, 200, { ok: true, plan: plan, costCNY: cost, usage: { prompt_tokens: pin, completion_tokens: pout } });
+      return sendJSON(res, 200, { ok: true, plan: plan, diversity: diversity, costCNY: cost, usage: { prompt_tokens: pin, completion_tokens: pout } });
     }
 
     if (url.startsWith('/api/')) return sendJSON(res, 404, { ok: false, error: 'unknown api' });
