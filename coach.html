@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>AI 营养师 · 练食清单</title>
+<link rel='icon' href='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%A5%97%3C/text%3E%3C/svg%3E'>
+<link rel='stylesheet' href='assets/css/style.css'>
+</head>
+<body data-page='coach'>
+<header class='topbar'><div class='wrap bar'><a class='brand' href='index.html'><span class='logo'>🥗</span>练食清单</a><nav class='nav'><a data-page='home' href='index.html'>首页</a><a data-page='foods' href='foods.html'>食物库</a><a data-page='select' href='select.html'>选食物</a><a data-page='coach' href='coach.html'>AI营养师</a><a data-page='plan' href='plan.html'>餐单</a><a data-page='bmr' href='bmr.html'>测代谢</a><a data-page='log' href='log.html'>今日记录</a><a data-page='saved' href='saved.html'>收藏</a><a data-page='about' href='about.html'>关于</a></nav></div></header>
+<main><div class='wrap'>
+<h1 style='margin-top:4px'>AI 营养师 <span class='small muted'>(试用版)</span></h1>
+<p class='muted'>填写档案 → 生成长期计划(训练日/休息日)→ 随时对话追问 → 一键记入今日记录。数据只存在这台设备,API Key 只存在本机后端。</p>
+<div class='card' id='modeCard'><span class='muted small'>正在检查本地服务…</span></div>
+
+<div class='card'>
+  <h2>① 我的档案</h2>
+  <div class='grid grid-2' style='row-gap:12px'>
+    <div><label class='small muted'>性别</label><select id='f-sex' style='width:100%;margin-top:4px'><option value='男'>男</option><option value='女'>女</option></select></div>
+    <div><label class='small muted'>年龄(岁)</label><input type='number' id='f-age' min='10' max='100' placeholder='例如 25' style='width:100%;margin-top:4px'></div>
+    <div><label class='small muted'>身高(cm)</label><input type='number' id='f-height' min='120' max='230' placeholder='例如 175' style='width:100%;margin-top:4px'></div>
+    <div><label class='small muted'>体重(kg)</label><input type='number' id='f-weight' min='30' max='250' placeholder='例如 70' style='width:100%;margin-top:4px'></div>
+    <div><label class='small muted'>训练目标</label><select id='f-goal' style='width:100%;margin-top:4px'><option>增肌</option><option>减脂</option><option>维持体重</option><option>备赛</option><option>提升运动表现</option></select></div>
+    <div><label class='small muted'>训练年限(年)</label><input type='number' id='f-years' min='0' max='40' value='0' style='width:100%;margin-top:4px'></div>
+    <div><label class='small muted'>每周训练次数</label><input type='number' id='f-freq' min='0' max='14' placeholder='例如 4' style='width:100%;margin-top:4px'></div>
+    <div><label class='small muted'>训练项目</label><input type='text' id='f-sport' placeholder='例如 力量训练 / 跑步 / 篮球' style='width:100%;margin-top:4px'></div>
+    <div><label class='small muted'>训练强度</label><select id='f-intensity' style='width:100%;margin-top:4px'><option>低(轻松出汗)</option><option selected>中(能坚持但吃力)</option><option>高(接近力竭)</option><option>中高(力量训练为主)</option></select></div>
+    <div><label class='small muted'>伤病或饮食限制说明</label><input type='text' id='f-injury' placeholder='没有可留空' style='width:100%;margin-top:4px'></div>
+  </div>
+  <div class='row' style='gap:8px;margin-top:14px'><span class='small muted'>饮食偏好/忌口:</span>
+    <label class='small'><input type='checkbox' class='diet' value='素食' style='margin-right:4px'>素食</label>
+    <label class='small'><input type='checkbox' class='diet' value='不吃乳制品' style='margin-right:4px'>不吃乳制品</label>
+    <label class='small'><input type='checkbox' class='diet' value='不吃海鲜' style='margin-right:4px'>不吃海鲜</label>
+    <label class='small'><input type='checkbox' class='diet' value='不吃坚果' style='margin-right:4px'>不吃坚果</label>
+    <label class='small'><input type='checkbox' class='diet' value='不吃辣' style='margin-right:4px'>不吃辣</label>
+  </div>
+  <div class='row' style='gap:12px;margin-top:14px;flex-wrap:wrap'>
+    <span class='small muted'>安全筛查(有就勾选):</span>
+    <label class='small'><input type='checkbox' class='flag' value='慢性病(如糖尿病/肾病/甲状腺)' style='margin-right:4px'>慢性病</label>
+    <label class='small'><input type='checkbox' class='flag' value='正在服药' style='margin-right:4px'>正在服药</label>
+    <label class='small'><input type='checkbox' class='flag' value='孕产或哺乳期' style='margin-right:4px'>孕产/哺乳</label>
+    <label class='small'><input type='checkbox' class='flag' value='进食障碍史' style='margin-right:4px'>进食障碍史</label>
+    <label class='small'><input type='checkbox' class='flag' value='近期体重骤降或月经异常' style='margin-right:4px'>体重骤降/月经异常</label>
+  </div>
+  <div class='tipbox' style='margin-top:14px'>
+    <b>免责声明与数据说明(必读)</b>
+    <div class='small' style='margin-top:4px'>本站提供的是健身营养参考建议,<b>不构成医疗诊断或治疗建议</b>。有疾病、用药、孕产哺乳、进食障碍等情况请先咨询医生或注册营养师。你的档案与记录默认只保存在本机浏览器;对话与生成计划时,必要信息会发送给模型服务用于生成回复。补剂只做科普与必要性判断,不给具体剂量。</div>
+    <label class='small' style='display:block;margin-top:8px'><input type='checkbox' id='f-consent' style='margin-right:6px'>我已阅读并同意以上说明</label>
+  </div>
+  <div class='row' style='margin-top:12px'><button class='btn btn-primary' id='saveProfile'>保存档案</button><span class='small muted' id='saveHint'></span></div>
+</div>
+
+<div class='card'>
+  <h2>② 长期饮食计划</h2>
+  <p class='small muted'>生成训练日 / 休息日两套模板(含每餐食物、克数、时机与替换建议)。</p>
+  <div class='row'><button class='btn btn-primary' id='genPlanBtn'>🧠 生成长期计划</button><span class='small muted' id='planHint'></span></div>
+  <div id='planBox' style='margin-top:14px'></div>
+</div>
+
+<div class='card'>
+  <h2>③ 和 AI 营养师聊</h2>
+  <div id='chatBox' style='border:1px solid var(--line);border-radius:12px;padding:10px;max-height:420px;overflow:auto;background:#fbfdfb'>
+    <div class='small muted'>可以问:今天练腿吃什么?这餐怎么换?外食怎么点?</div>
+  </div>
+  <div class='row' style='margin-top:10px;gap:8px'>
+    <input type='text' id='chatInput' placeholder='说说你的问题…' style='flex:1;min-width:0'>
+    <button class='btn btn-primary' id='sendBtn'>发送</button>
+    <button class='btn btn-ghost btn-sm' id='clearChat'>清空对话</button>
+  </div>
+  <div class='small muted' id='costHint' style='margin-top:6px'></div>
+</div>
+</div></main>
+<footer class='footer'><div class='wrap'>练食清单 · AI 营养师试用版 · <a href='about.html'>数据说明与免责声明</a></div></footer>
+<script src='data/foods.js'></script>
+<script src='assets/js/common.js'></script>
+<script src='assets/js/page-coach.js'></script>
+</body>
+</html>

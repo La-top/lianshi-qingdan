@@ -3,3 +3,8 @@
 Thumbs.db
 *.log
 
+
+# 本地密钥与日志
+.env
+server/usage.log
+node_modules/
