@@ -141,3 +141,12 @@ table.nut th{background:#f7faf7;font-weight:700}
 
 /* 食物写实图 */
 .foodpic{display:inline-block;object-fit:cover;border-radius:50%;vertical-align:-0.12em;background:#fff;border:2px solid #fff;box-shadow:0 1px 4px rgba(16,24,40,.14)}
+
+/* AI 营养师三步向导 */
+.wizard-steps{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.wizard-steps button{flex:1;min-width:110px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;font-weight:700;color:#40505f;cursor:pointer;font-family:inherit;font-size:14px}
+.wizard-steps button.active{background:var(--green-l);border-color:#bcddcb;color:var(--green-d)}
+.wizard-steps button:disabled{opacity:.45;cursor:not-allowed}
+.wizard-step{display:none}
+.wizard-step.active{display:block}
+@media(max-width:620px){.wizard-steps button{min-width:0;font-size:13px;padding:8px 6px}}

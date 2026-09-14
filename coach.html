@@ -13,7 +13,9 @@
 <h1 style='margin-top:4px'>AI 营养师 <span class='small muted'>(试用版)</span></h1>
 <p class='muted'>填写档案 → 生成长期计划(训练日/休息日)→ 随时对话追问 → 一键记入今日记录。数据只存在这台设备,API Key 只存在本机后端。</p>
 <div class='card' id='modeCard'><span class='muted small'>正在检查本地服务…</span></div>
+<div class='wizard-steps' id='wizardSteps'></div>
 
+<section class='wizard-step' data-step='1'>
 <div class='card'>
   <h2>① 我的档案</h2>
   <div class='grid grid-2' style='row-gap:12px'>
@@ -50,9 +52,13 @@
   </div>
   <div class='row' style='margin-top:12px'><button class='btn btn-primary' id='saveProfile'>保存档案</button><span class='small muted' id='saveHint'></span></div>
 </div>
+<div class='row' style='justify-content:flex-end;margin-top:12px'><button class='btn btn-primary' data-next='2'>下一步:饮食计划 →</button></div>
+</section>
 
+<section class='wizard-step' data-step='2'>
 <div class='card'>
   <h2>② 长期饮食计划</h2>
+  <div class='card' id='profileSummary' style='box-shadow:none;background:#fbfdfb;margin-bottom:12px'></div>
   <div class='row' style='gap:8px;margin-bottom:10px'><span class='small muted'>目标来源:</span><button class='btn btn-soft btn-sm' id='modeAuto'>由 AI 估算</button><button class='btn btn-ghost btn-sm' id='modeManual'>我自己填目标</button></div>
   <div id='manualBox' style='display:none;background:#f8fbf8;border:1px solid var(--line);border-radius:12px;padding:12px'>
     <div class='grid grid-2' style='row-gap:10px'>
@@ -71,9 +77,13 @@
   <div class='row'><button class='btn btn-primary' id='genPlanBtn'>🧠 生成长期计划</button><span class='small muted' id='planHint'></span></div>
   <div id='planBox' style='margin-top:14px'></div>
 </div>
+<div class='row' style='justify-content:space-between;margin-top:12px'><button class='btn btn-ghost' data-prev='1'>← 上一步</button><button class='btn btn-primary' data-next='3'>下一步:和营养师聊 →</button></div>
+</section>
 
+<section class='wizard-step' data-step='3'>
 <div class='card'>
   <h2>③ 和 AI 营养师聊</h2>
+  <p class='small muted' id='chatStatus' style='margin-bottom:10px'></p>
   <div id='chatBox' style='border:1px solid var(--line);border-radius:12px;padding:10px;max-height:420px;overflow:auto;background:#fbfdfb'>
     <div class='small muted'>可以问:今天练腿吃什么?这餐怎么换?外食怎么点?</div>
   </div>
@@ -84,6 +94,8 @@
   </div>
   <div class='small muted' id='costHint' style='margin-top:6px'></div>
 </div>
+<div class='row' style='justify-content:flex-start;margin-top:12px'><button class='btn btn-ghost' data-prev='2'>← 上一步:饮食计划</button></div>
+</section>
 </div></main>
 <footer class='footer'><div class='wrap'>练食清单 · AI 营养师试用版 · <a href='about.html'>数据说明与免责声明</a></div></footer>
 <script src='data/foods.js'></script>

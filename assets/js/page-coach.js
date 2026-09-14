@@ -5,6 +5,7 @@ var coach = {
   plan: storeGet('coachPlan', null),
   chat: storeGet('coachChat', []),
   targetMode: storeGet('coachTargetMode', 'auto'),
+  step: 0,
   manualTargets: storeGet('coachTargets', null),
   adherence: storeGet('coachAdherence', null),
   busy: false
@@ -69,6 +70,7 @@ function saveProfile() {
   if (p.safetyFlags.length) {
     $('#planHint').innerHTML = "<span class='tag orange'>已勾选安全筛查项:计划会以一般性建议为主,并建议你咨询医生/注册营养师</span>";
   }
+  goStep(2);
   return true;
 }
 
@@ -387,6 +389,46 @@ function genPlan() {
     .catch(function (e) { $('#planHint').textContent = ''; toast('请求失败:' + String(e.message || e)); });
 }
 
+/* ---------- 三步向导 ---------- */
+function stepAvailable(n) {
+  if (n <= 1) return true;
+  return !!(coach.profile && coach.profile.consent);
+}
+function renderStepBar() {
+  var bar = $('#wizardSteps'); if (!bar) return;
+  var names = ['① 我的档案', '② 饮食计划', '③ 对话'];
+  bar.innerHTML = names.map(function (t, i) {
+    var n = i + 1;
+    return "<button type='button' data-step-btn='" + n + "'" + (coach.step === n ? " class='active'" : '') + (stepAvailable(n) ? '' : ' disabled') + ">" + t + "</button>";
+  }).join('');
+}
+function renderProfileSummary() {
+  var el = $('#profileSummary'); if (!el) return;
+  var p = coach.profile;
+  if (!p) { el.innerHTML = "<span class='small muted'>还没有档案,请回到第 ① 步填写。</span>"; return; }
+  var bits = [p.sex, p.age ? p.age + ' 岁' : '', p.height ? p.height + 'cm' : '', p.weight ? p.weight + 'kg' : '', p.goal, p.freq ? ('每周 ' + p.freq + ' 练') : '', p.intensity].filter(Boolean);
+  el.innerHTML = "<div class='row' style='justify-content:space-between;flex-wrap:wrap;gap:8px'><span>" + esc(bits.join(' · ')) + "</span><button class='btn btn-ghost btn-sm' id='editProfile'>编辑档案</button></div>" +
+    ((p.safetyFlags && p.safetyFlags.length) ? ("<div class='small' style='margin-top:6px;color:var(--orange-d)'>已勾选安全筛查:" + esc(p.safetyFlags.join('、')) + ",计划会以一般性建议为主。</div>") : '');
+  var b = $('#editProfile'); if (b) b.onclick = function () { goStep(1); };
+}
+function renderChatStatus() {
+  var el = $('#chatStatus'); if (!el) return;
+  if (coach.plan) {
+    var t = coach.plan.targets || {};
+    el.textContent = '当前计划:' + (coach.plan.summary || '训练日 / 休息日两套模板') + (t.kcal ? (' · ' + t.kcal + ' 千卡/天') : '');
+  } else {
+    el.textContent = '还没有生成计划:可以回到第 ② 步生成,也可以直接在这里提问。';
+  }
+}
+function goStep(n, silent) {
+  if (!stepAvailable(n)) { if (!silent) toast('请先填写并保存档案'); n = 1; }
+  coach.step = n;
+  storeSet('coachStep', n);
+  $$('.wizard-step').forEach(function (s) { s.classList.toggle('active', Number(s.getAttribute('data-step')) === n); });
+  renderStepBar(); renderProfileSummary(); renderChatStatus();
+  try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, 0); }
+}
+
 /* ---------- 事件绑定 ---------- */
 $('#saveProfile').onclick = saveProfile;
 $('#genPlanBtn').onclick = genPlan;
@@ -396,6 +438,12 @@ $('#tg-parse').onclick = parsePaste;
 $('#sendBtn').onclick = sendChat;
 $('#chatInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') sendChat(); });
 $('#clearChat').onclick = function () { coach.chat = []; storeSet('coachChat', []); renderChat(); };
+document.addEventListener('click', function (e) {
+  var b = e.target.closest('[data-step-btn],[data-next],[data-prev]');
+  if (!b) return;
+  var n = Number(b.getAttribute('data-step-btn') || b.getAttribute('data-next') || b.getAttribute('data-prev'));
+  if (n) goStep(n);
+});
 $('#planBox').addEventListener('click', function (e) {
   var b = e.target.closest('[data-act]');
   if (!b) return;
@@ -409,6 +457,9 @@ fillForm();
 setTargetMode(coach.targetMode || 'auto');
 fillManual();
 renderPlan();
+var savedStep = Number(storeGet('coachStep', 0)) || 0;
+var initialStep = (coach.profile && coach.profile.consent) ? (savedStep >= 2 ? savedStep : 2) : 1;
+goStep(initialStep, true);
 renderChat();
 renderMode();
 initHeader('coach');
